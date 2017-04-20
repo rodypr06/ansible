@@ -1,5 +1,5 @@
 {
-    "remotePath": "./etc/ansible/",
+    "remotePath": "/etc/ansible",
     "host": "rheltest",
     "username": "sftp",
     "password": "AWGtemp!",
