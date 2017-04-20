@@ -1,0 +1,23 @@
+{
+    "remotePath": "./etc/ansible/",
+    "host": "rheltest",
+    "username": "sftp",
+    "password": "AWGtemp!",
+    "port": 22,
+    "secure": true,
+    "protocol": "sftp",
+    "uploadOnSave": true,
+    "passive": false,
+    "debug": false,
+    "privateKeyPath": null,
+    "passphrase": null,
+    "ignore": [
+        "\\.vscode",
+        "\\.DS_Store"
+    ],
+    "generatedFiles": {
+        "uploadOnSave": true,
+        "extensionsToInclude": [],
+        "path": ""
+    }
+}
