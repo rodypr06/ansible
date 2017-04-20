@@ -1,0 +1,105 @@
+Semaphore 2.2.0
+Port :3000
+MySQL root@127.0.0.1:3306 semaphore
+Tmp Path (projects home) /opt/playbooks
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /api/ping                 --> github.com/ansible-semaphore/semaphore/api.Route.func1 (4 handlers)
+[GIN-debug] POST   /api/auth/login           --> github.com/ansible-semaphore/semaphore/api.login (4 handlers)
+[GIN-debug] POST   /api/auth/logout          --> github.com/ansible-semaphore/semaphore/api.logout (4 handlers)
+[GIN-debug] GET    /api/ws                   --> github.com/ansible-semaphore/semaphore/api/sockets.Handler (5 handlers)
+[GIN-debug] GET    /api/info                 --> github.com/ansible-semaphore/semaphore/api.getSystemInfo (5 handlers)
+[GIN-debug] GET    /api/upgrade              --> github.com/ansible-semaphore/semaphore/api.checkUpgrade (5 handlers)
+[GIN-debug] POST   /api/upgrade              --> github.com/ansible-semaphore/semaphore/api.doUpgrade (5 handlers)
+[GIN-debug] GET    /api/user                 --> github.com/ansible-semaphore/semaphore/api.getUser (5 handlers)
+[GIN-debug] GET    /api/user/tokens          --> github.com/ansible-semaphore/semaphore/api.getAPITokens (5 handlers)
+[GIN-debug] POST   /api/user/tokens          --> github.com/ansible-semaphore/semaphore/api.createAPIToken (5 handlers)
+[GIN-debug] DELETE /api/user/tokens/:token_id --> github.com/ansible-semaphore/semaphore/api.expireAPIToken (5 handlers)
+[GIN-debug] GET    /api/projects             --> github.com/ansible-semaphore/semaphore/api/projects.GetProjects (5 handlers)
+[GIN-debug] POST   /api/projects             --> github.com/ansible-semaphore/semaphore/api/projects.AddProject (5 handlers)
+[GIN-debug] GET    /api/events               --> github.com/ansible-semaphore/semaphore/api.getEvents (5 handlers)
+[GIN-debug] GET    /api/users                --> github.com/ansible-semaphore/semaphore/api.getUsers (5 handlers)
+[GIN-debug] POST   /api/users                --> github.com/ansible-semaphore/semaphore/api.addUser (5 handlers)
+[GIN-debug] GET    /api/users/:user_id       --> github.com/ansible-semaphore/semaphore/api.getUser (6 handlers)
+[GIN-debug] PUT    /api/users/:user_id       --> github.com/ansible-semaphore/semaphore/api.updateUser (6 handlers)
+[GIN-debug] POST   /api/users/:user_id/password --> github.com/ansible-semaphore/semaphore/api.updateUserPassword (6 handlers)
+[GIN-debug] DELETE /api/users/:user_id       --> github.com/ansible-semaphore/semaphore/api.deleteUser (6 handlers)
+[GIN-debug] GET    /api/project/:project_id  --> github.com/ansible-semaphore/semaphore/api/projects.GetProject (6 handlers)
+[GIN-debug] PUT    /api/project/:project_id  --> github.com/ansible-semaphore/semaphore/api/projects.UpdateProject (7 handlers)
+[GIN-debug] DELETE /api/project/:project_id  --> github.com/ansible-semaphore/semaphore/api/projects.DeleteProject (7 handlers)
+[GIN-debug] GET    /api/project/:project_id/events --> github.com/ansible-semaphore/semaphore/api.getEvents (6 handlers)
+[GIN-debug] GET    /api/project/:project_id/users --> github.com/ansible-semaphore/semaphore/api/projects.GetUsers (6 handlers)
+[GIN-debug] POST   /api/project/:project_id/users --> github.com/ansible-semaphore/semaphore/api/projects.AddUser (7 handlers)
+[GIN-debug] POST   /api/project/:project_id/users/:user_id/admin --> github.com/ansible-semaphore/semaphore/api/projects.MakeUserAdmin (8 handlers)
+[GIN-debug] DELETE /api/project/:project_id/users/:user_id/admin --> github.com/ansible-semaphore/semaphore/api/projects.MakeUserAdmin (8 handlers)
+[GIN-debug] DELETE /api/project/:project_id/users/:user_id --> github.com/ansible-semaphore/semaphore/api/projects.RemoveUser (8 handlers)
+[GIN-debug] GET    /api/project/:project_id/keys --> github.com/ansible-semaphore/semaphore/api/projects.GetKeys (6 handlers)
+[GIN-debug] POST   /api/project/:project_id/keys --> github.com/ansible-semaphore/semaphore/api/projects.AddKey (6 handlers)
+[GIN-debug] PUT    /api/project/:project_id/keys/:key_id --> github.com/ansible-semaphore/semaphore/api/projects.UpdateKey (7 handlers)
+[GIN-debug] DELETE /api/project/:project_id/keys/:key_id --> github.com/ansible-semaphore/semaphore/api/projects.RemoveKey (7 handlers)
+[GIN-debug] GET    /api/project/:project_id/repositories --> github.com/ansible-semaphore/semaphore/api/projects.GetRepositories (6 handlers)
+[GIN-debug] POST   /api/project/:project_id/repositories --> github.com/ansible-semaphore/semaphore/api/projects.AddRepository (6 handlers)
+[GIN-debug] PUT    /api/project/:project_id/repositories/:repository_id --> github.com/ansible-semaphore/semaphore/api/projects.UpdateRepository (7 handlers)
+[GIN-debug] DELETE /api/project/:project_id/repositories/:repository_id --> github.com/ansible-semaphore/semaphore/api/projects.RemoveRepository (7 handlers)
+[GIN-debug] GET    /api/project/:project_id/inventory --> github.com/ansible-semaphore/semaphore/api/projects.GetInventory (6 handlers)
+[GIN-debug] POST   /api/project/:project_id/inventory --> github.com/ansible-semaphore/semaphore/api/projects.AddInventory (6 handlers)
+[GIN-debug] PUT    /api/project/:project_id/inventory/:inventory_id --> github.com/ansible-semaphore/semaphore/api/projects.UpdateInventory (7 handlers)
+[GIN-debug] DELETE /api/project/:project_id/inventory/:inventory_id --> github.com/ansible-semaphore/semaphore/api/projects.RemoveInventory (7 handlers)
+[GIN-debug] GET    /api/project/:project_id/environment --> github.com/ansible-semaphore/semaphore/api/projects.GetEnvironment (6 handlers)
+[GIN-debug] POST   /api/project/:project_id/environment --> github.com/ansible-semaphore/semaphore/api/projects.AddEnvironment (6 handlers)
+[GIN-debug] PUT    /api/project/:project_id/environment/:environment_id --> github.com/ansible-semaphore/semaphore/api/projects.UpdateEnvironment (7 handlers)
+[GIN-debug] DELETE /api/project/:project_id/environment/:environment_id --> github.com/ansible-semaphore/semaphore/api/projects.RemoveEnvironment (7 handlers)
+[GIN-debug] GET    /api/project/:project_id/templates --> github.com/ansible-semaphore/semaphore/api/projects.GetTemplates (6 handlers)
+[GIN-debug] POST   /api/project/:project_id/templates --> github.com/ansible-semaphore/semaphore/api/projects.AddTemplate (6 handlers)
+[GIN-debug] PUT    /api/project/:project_id/templates/:template_id --> github.com/ansible-semaphore/semaphore/api/projects.UpdateTemplate (7 handlers)
+[GIN-debug] DELETE /api/project/:project_id/templates/:template_id --> github.com/ansible-semaphore/semaphore/api/projects.RemoveTemplate (7 handlers)
+[GIN-debug] GET    /api/project/:project_id/tasks --> github.com/ansible-semaphore/semaphore/api/tasks.GetAll (6 handlers)
+[GIN-debug] POST   /api/project/:project_id/tasks --> github.com/ansible-semaphore/semaphore/api/tasks.AddTask (6 handlers)
+[GIN-debug] GET    /api/project/:project_id/tasks/:task_id/output --> github.com/ansible-semaphore/semaphore/api/tasks.GetTaskOutput (7 handlers)
+[GIN-debug] DELETE /api/project/:project_id/tasks/:task_id --> github.com/ansible-semaphore/semaphore/api/tasks.RemoveTask (7 handlers)
+[GIN-debug] Listening and serving HTTP on :3000
+[GIN] 2017/04/20 - 10:01:52 | 200 [0m|     308.156µs | 10.2.87.91 |  [0m GET     /
+[GIN] 2017/04/20 - 10:01:52 | 200 [0m|   11.856927ms | 10.2.87.91 |  [0m GET     /public/css/semaphore.css
+[GIN] 2017/04/20 - 10:01:52 | 200 [0m|   21.050873ms | 10.2.87.91 |  [0m GET     /public/js/bundle.js
+[GIN] 2017/04/20 - 10:01:53 | 403 [0m|      24.829µs | 10.2.87.91 |  [0m GET     /api/user
+[GIN] 2017/04/20 - 10:01:53 | 200 [0m|     649.393µs | 10.2.87.91 |  [0m GET     /public/vendor/fontawesome/fonts/fontawesome-webfont.woff2
+[GIN] 2017/04/20 - 10:01:53 | 200 [0m|      40.953µs | 10.2.87.91 |  [0m GET     /public/html/abstract.html
+[GIN] 2017/04/20 - 10:01:53 | 200 [0m|      163.08µs | 10.2.87.91 |  [0m GET     /public/js/controllers/dashboard.js
+[GIN] 2017/04/20 - 10:01:53 | 200 [0m|      55.692µs | 10.2.87.91 |  [0m GET     /public/js/controllers/login.js
+[GIN] 2017/04/20 - 10:01:53 | 200 [0m|     100.317µs | 10.2.87.91 |  [0m GET     /public/js/controllers/projects/edit.js
+[GIN] 2017/04/20 - 10:01:53 | 200 [0m|      52.421µs | 10.2.87.91 |  [0m GET     /public/html/auth/login.html
+[GIN] 2017/04/20 - 10:01:53 | 200 [0m|      67.865µs | 10.2.87.91 |  [0m GET     /public/html/dashboard.html
+[GIN] 2017/04/20 - 10:01:53 | 404 [0m|       2.942µs | 10.2.87.91 |  [0m GET     /favicon.ico
+[GIN] 2017/04/20 - 10:01:53 | 404 [0m|       2.999µs | 10.2.87.91 |  [0m GET     /favicon.ico
+[GIN] 2017/04/20 - 10:01:55 | 400 [0m|  186.642758ms | 10.2.87.91 |  [0m POST    /api/auth/login
+[GIN] 2017/04/20 - 10:01:58 | 400 [0m|  161.103535ms | 10.2.87.91 |  [0m POST    /api/auth/login
+[GIN] 2017/04/20 - 10:02:01 | 400 [0m|  159.233763ms | 10.2.87.91 |  [0m POST    /api/auth/login
+[GIN] 2017/04/20 - 10:02:06 | 204 [0m|  170.586152ms | 10.2.87.91 |  [0m POST    /api/auth/login
+[GIN] 2017/04/20 - 10:02:06 | 200 [0m|     228.671µs | 10.2.87.91 |  [0m GET     /
+[GIN] 2017/04/20 - 10:02:06 | 200 [0m|     1.58898ms | 10.2.87.91 |  [0m GET     /public/css/semaphore.css
+[GIN] 2017/04/20 - 10:02:06 | 200 [0m|   16.056381ms | 10.2.87.91 |  [0m GET     /public/js/bundle.js
+[GIN] 2017/04/20 - 10:02:07 | 200 [0m|    2.549224ms | 10.2.87.91 |  [0m GET     /api/user
+[GIN] 2017/04/20 - 10:02:07 | 200 [0m|    1.249116ms | 10.2.87.91 |  [0m GET     /public/vendor/fontawesome/fonts/fontawesome-webfont.woff2
+[GIN] 2017/04/20 - 10:02:07 | 200 [0m|   22.418239ms | 10.2.87.91 |  [0m GET     /api/info
+[GIN] 2017/04/20 - 10:02:07 | 200 [0m|      98.534µs | 10.2.87.91 |  [0m GET     /public/js/controllers/dashboard.js
+[GIN] 2017/04/20 - 10:02:07 | 200 [0m|     161.734µs | 10.2.87.91 |  [0m GET     /public/js/controllers/projects/edit.js
+[GIN] 2017/04/20 - 10:02:07 | 200 [0m|     138.112µs | 10.2.87.91 |  [0m GET     /public/html/dashboard.html
+[GIN] 2017/04/20 - 10:02:07 | 200 [0m|     4.82148ms | 10.2.87.91 |  [0m GET     /api/projects
+[GIN] 2017/04/20 - 10:02:07 | 200 [0m|    6.621413ms | 10.2.87.91 |  [0m GET     /api/events
+[GIN] 2017/04/20 - 10:02:12 | 200 [0m|    2.952231ms | 10.2.87.91 |  [0m GET     /api/project/1
+[GIN] 2017/04/20 - 10:02:12 | 200 [0m|      64.098µs | 10.2.87.91 |  [0m GET     /public/js/controllers/projects/dashboard.js
+[GIN] 2017/04/20 - 10:02:12 | 200 [0m|      75.672µs | 10.2.87.91 |  [0m GET     /public/html/projects/container.html
+[GIN] 2017/04/20 - 10:02:12 | 200 [0m|      71.143µs | 10.2.87.91 |  [0m GET     /public/js/controllers/projects/taskRunner.js
+[GIN] 2017/04/20 - 10:02:12 | 200 [0m|      107.44µs | 10.2.87.91 |  [0m GET     /public/html/projects/dashboard.html
+[GIN] 2017/04/20 - 10:02:12 | 200 [0m|    5.132691ms | 10.2.87.91 |  [0m GET     /api/project/1/tasks
+[GIN] 2017/04/20 - 10:02:12 | 200 [0m|    5.932359ms | 10.2.87.91 |  [0m GET     /api/project/1/events
+[GIN] 2017/04/20 - 10:02:16 | 200 [0m|     175.083µs | 10.2.87.91 |  [0m GET     /public/js/controllers/projects/templates.js
+[GIN] 2017/04/20 - 10:02:16 | 200 [0m|      68.297µs | 10.2.87.91 |  [0m GET     /public/html/projects/templates/list.html
+[GIN] 2017/04/20 - 10:02:16 | 200 [0m|    3.411007ms | 10.2.87.91 |  [0m GET     /api/project/1/keys
+[GIN] 2017/04/20 - 10:02:16 | 200 [0m|    3.752288ms | 10.2.87.91 |  [0m GET     /api/project/1/inventory
+[GIN] 2017/04/20 - 10:02:16 | 200 [0m|    2.524276ms | 10.2.87.91 |  [0m GET     /api/project/1/repositories
+[GIN] 2017/04/20 - 10:02:16 | 200 [0m|    4.786121ms | 10.2.87.91 |  [0m GET     /api/project/1/environment
+[GIN] 2017/04/20 - 10:02:16 | 200 [0m|    4.425628ms | 10.2.87.91 |  [0m GET     /api/project/1/templates
+[GIN] 2017/04/20 - 10:02:17 | 200 [0m|     106.884µs | 10.2.87.91 |  [0m GET     /public/html/projects/templates/add.html

@@ -1,0 +1,6 @@
+# Managed by AWG Ansible, direct changes
+# # to this file will be overwritten
+#
+{% for i in sudo_users %}
+{{i}} ALL=(ALL) {{"NOPASSWD: " if sudo_nopasswd else ""}}ALL
+{% endfor %}
