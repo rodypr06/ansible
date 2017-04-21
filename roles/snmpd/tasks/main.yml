@@ -1,6 +1,11 @@
 ---
 
+##Installs SNMP Packages
 - name: snmpd package install
-  package: name= {{ snmpd_packages }} state=present
+  package: name=net-snmp state=present
+
+##Installs SNMP-UTILS packages (snmpwalk,etc...)
+- name: snmp-utils install
+  package: name=net-snmp-utils
 
 - include: snmpd.yml
