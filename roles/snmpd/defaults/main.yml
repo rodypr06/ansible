@@ -3,7 +3,6 @@
 snmpd_sysLocation: 'Vmware Vcenter'
 snmpd_contact: 'roderick.rabelo@awginc.com'
 
-
 snmp_clients:
    - 127.0.0.1
    - 10.1.1.1
