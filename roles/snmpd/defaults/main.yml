@@ -5,8 +5,8 @@ snmpd_enable: true
 
 # Define read-only snmpd settings
 snmpd_authorized_networks: []
-   - network: 10.0.0.0/24
-     community: awginc
+#  - network: 10.0.0.0/24
+   - community: awginc
 
 snmpd_sysLocation: "/etc/snmp/snmpd.conf"
 snmpd_sysContact: "Roderick Rabelo <roderick.rabelo@awginc.com>"
