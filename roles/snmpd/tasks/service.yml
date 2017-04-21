@@ -1,8 +1,0 @@
----
-- name: service | starting and enabling snmpd service
-  service:
-    name: "snmpd"
-    state: "started"
-    enabled: yes
-  tags:
-    - snmpd

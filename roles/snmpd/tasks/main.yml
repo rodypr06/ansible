@@ -1,10 +1,6 @@
 ---
-# tasks file for ansible-snmpd
 
-- include: redhat.yml
-  when: ansible_os_family == "RedHat"
+- name: snmpd package install
+  package: name= {{ snmpd_packages}} state=present
 
-- include: config.yml
-  when: snmpd_config
-
-- include: service.yml
+- include: snmpd.yml

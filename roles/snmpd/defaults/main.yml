@@ -1,12 +1,22 @@
 ---
-# defaults file for ansible-snmpd
-snmpd_config: true
-snmpd_enable: true
 
-# Define read-only snmpd settings
-snmpd_authorized_networks:
-    - network: 10.0.0.0/24
-      community: awginc
+snmpd_sysLocation: 'Vmware Vcenter'
+snmpd_contact: 'roderick.rabelo@awginc.com'
 
-snmpd_sysLocation: "/etc/snmp/snmpd.conf"
-snmpd_sysContact: "Roderick Rabelo <roderick.rabelo@awginc.com>"
+
+snmp_clients:
+   - 127.0.0.1
+   - 10.1.1.1
+
+snmp_v2_source:
+   - 127.0.0.1
+   - 10.0.0.0/8
+
+snmpd_v2_snmpcommunity: awginc
+
+snmpd_ipv6: false
+snmpd_loopback_only: true
+snmpd_agentx: false
+
+## install also snmpget, snmpwalk...
+snmpd_with_client: false

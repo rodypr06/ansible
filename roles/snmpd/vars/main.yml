@@ -1,2 +1,4 @@
 ---
-# vars file for ansible-snmpd
+
+snmpd_packages: 'net-snmp'
+snmp_packages: 'net-snmp-utils'
