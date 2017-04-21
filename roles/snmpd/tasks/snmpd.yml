@@ -9,5 +9,5 @@
   notify:
     - restart_snmpd
 
-  - name: ensure service is enabled and started
+- name: ensure service is enabled and started
     service: name=snmpd state=started enabled=yes
