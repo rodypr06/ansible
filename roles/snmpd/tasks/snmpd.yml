@@ -2,7 +2,7 @@
 
 - name: Update SNMP configuration
   template:
-    src: snmp.conf.j2
+    src: snmpd.conf.j2
     dest: '/etc/snmp/snmpd.conf'
     mode: 0640
     backup: yes
