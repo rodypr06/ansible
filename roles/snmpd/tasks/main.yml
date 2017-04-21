@@ -1,6 +1,6 @@
 ---
 
 - name: snmpd package install
-  package: name= {{ snmpd_packages}} state=present
+  package: name= {{ snmpd_packages }} state=present
 
 - include: snmpd.yml
