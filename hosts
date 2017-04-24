@@ -30,13 +30,13 @@
 #######################################################################
 #########################AWG SERVERS###################################
 #
+#TEST SERVERS GROUP
 [test]
-chef-workstation
-<<<<<<< HEAD
-wfrhel
-=======
-graylogtest
->>>>>>> a731604b6edefe2631822fbfb1c1e873908a6fd8
 
+chef-workstation
+graylogtest
+
+#PRODUCTION SERVERS GROUP
 [production]
+
 chef-server
