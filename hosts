@@ -32,6 +32,7 @@
 #
 [test]
 chef-workstation
+wfrhel
 
 [production]
 chef-server
