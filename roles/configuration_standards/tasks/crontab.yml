@@ -12,3 +12,11 @@
     minute: "0"
     hour: "6,11"
     job: "/usr/local/bin/FireMotD -S > /dev/null 2>&1" 
+
+
+#######Remove old Chef Crontabs############
+
+- name: Remove old Chef Cronjobs
+  cron:
+    name: "# Chef Name:"
+    state: absent
