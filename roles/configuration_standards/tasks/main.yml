@@ -6,7 +6,7 @@
 
 - name: AWG SSH Banner
   lineinfile:
-    path: /etc/ssh/sshd_config
+    dest: /etc/ssh/sshd_config
     state: present
     regexp: '^Banner'
     line: 'Banner /etc/awgsshbanner.txt'
@@ -27,7 +27,7 @@
 
 - name: Root Bash Profile MOTD
   lineinfile:
-    path: /root/.bash_profile
+    dest: /root/.bash_profile
     state: present
     regexp: '^/usr/local/bin/FireMotD'
     line: '/usr/local/bin/FireMotD -t blue ###MOTD Server Infor/Performance in Blue Color'
