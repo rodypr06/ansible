@@ -13,25 +13,6 @@
     hour: "6,11"
     job: "/usr/local/bin/FireMotD -S > /dev/null 2>&1"     
 
-##########Remove old Chef Crontabs################
-- name: Remove old Chef Crontabs
-  lineinfile:
-    dest: /var/spool/cron/root
-    state: absent
-    regexp: "^*/15 * * * * chef-client >/dev/null 2>&1"
-
-- name: Remove old Chef Crontabs
-  lineinfile:
-    dest: /var/spool/cron/root
-    state: absent
-    regexp: "^*/15 * * * * /samnt/scripts/space_monitor.sh >/dev/null 2>&1"
-
-- name: Remove old Chef Crontabs
-  lineinfile:
-    dest: /var/spool/cron/root
-    state: absent
-    regexp: "^* 3 * * * /usr/local/bin/FireMotD -S > /dev/null"
-
 
 
 
