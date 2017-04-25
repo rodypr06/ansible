@@ -1,8 +1,8 @@
 ---
 
-- hosts: test
+- hosts: nonprod
   roles:
    - ntp
    - postfix
    - snmpd
-   - configuration_standards
+   - sudo

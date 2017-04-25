@@ -29,10 +29,15 @@
 #
 #######################################################################
 #########################AWG SERVERS###################################
-#
+
 [test]
 chef-workstation
+
+[nonprod]
+aisltest
+aislqa
 graylogtest
 
 [production]
-chef-server
+satellite
+graylog
