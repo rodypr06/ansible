@@ -49,8 +49,8 @@
 ####Change VIM Colors to more readable####
 - name: VIM color change
   lineinfile:
-  dest: /etc/vimrc
-  regexp: '^set background='
+    dest: /etc/vimrc
+    regexp: '^set background='
   line: 'set background=dark'
 
 ####Configuration Templates####
