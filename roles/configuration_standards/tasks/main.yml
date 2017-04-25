@@ -33,3 +33,7 @@
     regexp: '^/usr/local/bin/FireMotD'
     line: '/usr/local/bin/FireMotD -t blue ###MOTD Server Infor/Performance in Blue Color'
 
+##########Crontab task is in a seperate .yml file, so we need to include it to this main.yml file##########
+- include: crontab.yml
+
+
