@@ -8,7 +8,7 @@
   lineinfile:
     dest: /etc/ssh/sshd_config
     state: present
-    regexp: '^Banner'
+    #regexp: '^Banner'
     line: 'Banner /etc/awgsshbanner.txt'
   notify:
     - restart sshd
@@ -30,6 +30,6 @@
   lineinfile:
     dest: /root/.bash_profile
     state: present
-    regexp: '^/usr/local/bin/FireMotD'
+    #regexp: '^/usr/local/bin/FireMotD'
     line: '/usr/local/bin/FireMotD -t blue ###MOTD Server Infor/Performance in Blue Color'
 
