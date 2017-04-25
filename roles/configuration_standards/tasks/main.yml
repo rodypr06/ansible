@@ -27,7 +27,7 @@
     name: /samnt
     src: katello-satellite:/samnt
     fstype: nfs
-    state: present
+    state: mounted
 
 ####MOTD Configutation####
 - name: Install Firemotd
