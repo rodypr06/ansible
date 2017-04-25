@@ -14,14 +14,14 @@
     - restart sshd
 ##########MOTD Configutation##########
 - name: Install Firemotd
-  command: make install arg1
+  command: make install
   args:
     chdir: /samnt/scripts/FireMotD-5.14.160701
   register: makeinstall
 
 - name: make_bash
   when: makeinstall|success
-  command: make bash_completion arg1
+  command: make bash_completion
   args:
     chdir: /samnt/scripts/FireMotD-5.14.160701
 
