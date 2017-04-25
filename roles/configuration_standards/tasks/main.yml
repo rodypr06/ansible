@@ -17,6 +17,7 @@
   command: make install
   args:
     chdir: /samnt/scripts/FireMotD-5.14.160701
+    creates: /usr/local/bin/FireMotD
   register: makeinstall
 
 - name: make_bash
