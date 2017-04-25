@@ -15,12 +15,6 @@
 
 ##########Remove old Chef Crontabs################
 - name: Remove old Chef Crontabs
-  lineinfile: 
-    dest: /var/spool/cron/root
-    state: absent
-    regexp: "^# Chef Name :"
-
-- name: Remove old Chef Crontabs
   lineinfile:
     dest: /var/spool/cron/root
     state: absent
