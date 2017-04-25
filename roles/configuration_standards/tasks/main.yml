@@ -21,7 +21,7 @@
   register: makeinstall
 
 - name: make_bash
-  when: makeinstall|success
+  when: makeinstall|changed
   command: make bash_completion
   args:
     chdir: /samnt/scripts/FireMotD-5.14.160701
