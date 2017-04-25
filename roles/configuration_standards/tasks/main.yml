@@ -4,13 +4,14 @@
 - name: ssh welcome banner
   copy: src=awgsshbanner.txt dest=/etc/awgsshbanner.txt owner=root group=root mode=644
 
-- lineinfile:
-  path: /etc/ssh/sshd_config
-  state: present
-  regexp: '^Banner'
-  line: 'Banner /etc/awgsshbanner.txt'
-  notify:
-    - restart sshd
+- name: AWG SSH Banner
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    state: present
+    regexp: '^Banner'
+    line: 'Banner /etc/awgsshbanner.txt'
+    notify:
+      - restart sshd
 ##########MOTD Configutation##########
 - name: Install Firemotd
   command: make install arg1
@@ -24,9 +25,10 @@
   args:
     chdir: /samnt/scripts/FireMotD-5.14.160701
 
-- lineinfile:
-  path: /root/.bash_profile
-  state: present
-  regexp: '^/usr/local/bin/FireMotD'
-  line: '/usr/local/bin/FireMotD -t blue ###MOTD Server Infor/Performance in Blue Color'
+- name: Root Bash Profile MOTD
+  lineinfile:
+    path: /root/.bash_profile
+    state: present
+    regexp: '^/usr/local/bin/FireMotD'
+    line: '/usr/local/bin/FireMotD -t blue ###MOTD Server Infor/Performance in Blue Color'
 
