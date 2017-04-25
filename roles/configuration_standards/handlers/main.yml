@@ -2,3 +2,12 @@
 
 - name: restart sshd
   service: name=sshd state=restarted
+
+- name: restart ntpd
+  service: name=ntpd state=restarted enabled=yes
+
+- name: restart ntpdate
+  service: name=ntpd state=restarted enabled=yes
+
+- name: restart rsyslog
+  service: name=rsyslog state=restarted enabled=yes

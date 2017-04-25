@@ -1,6 +1,10 @@
 ---
-
-##########SSH Welcome Banner##########
+###Role: Configuration Standards
+###Owned by: Server Team, AWG
+###Maintained by Roderick Rabelo (roderick.rabelo@awginc.com)
+##
+#
+####SSH Welcome Banner####
 - name: ssh welcome banner
   copy: src=awgsshbanner.txt dest=/etc/awgsshbanner.txt owner=root group=root mode=644
 
@@ -12,7 +16,8 @@
     line: 'Banner /etc/awgsshbanner.txt'
   notify:
     - restart sshd
-##########MOTD Configutation##########
+
+####MOTD Configutation####
 - name: Install Firemotd
   command: make install
   args:
@@ -33,7 +38,60 @@
     regexp: '^/usr/local/bin/FireMotD'
     line: '/usr/local/bin/FireMotD -t blue ###MOTD Server Infor/Performance in Blue Color'
 
-##########Crontab task is in a seperate .yml file, so we need to include it to this main.yml file##########
+####Crontab task is in a seperate .yml file,####
+####so we need to include it to this main.yml file####
 - include: crontab.yml
 
+####Disable Server Local Firewall####
+- name: Disable Firewalld
+  service: name=firewalld state=stopped
+
+####Change VIM Colors to more readable####
+- name: VIM color change
+  lineinfile:
+  dest: /etc/vimrc
+  regexp: '^set background='
+  line: 'set background=dark'
+
+####Configuration Templates####
+- name: Space Monitoring Script
+  template:
+    src: space_monitor.sh.j2
+    dest: /samnt/scripts/space_monitor.sh
+    owner: root
+    group: root
+    mode: 751
+
+- name: Rsyslog Configuration
+  template:
+    src: rsyslog.conf.j2
+    dest: /etc/rsyslog.conf
+    owner: root
+    group: root
+    mode: 644
+  notify:
+    - restart rsyslog
+
+- name: Resolv Configuration
+  template:
+    src: resolv.conf.j2
+    dest: /etc/resolv.conf
+    owner: root
+    group: root
+    mode: 644
+
+####Create SAMNT Directory####
+- name: Create /samnt Directory
+  file: dest=/samnt state=directory
+
+####Mount SAMNT NFS####
+- name: Mount samnt Filesystem
+  mount:
+    name: /samnt
+    src: katello-satellite:/samnt
+    fstype: nfs
+    state: present
+
+
+  
 
