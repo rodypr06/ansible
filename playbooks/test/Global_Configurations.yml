@@ -2,7 +2,7 @@
 
 - hosts: test
   roles:
-   - ntp
-   - postfix
-   - snmpd
+   #- ntp
+   #- postfix
+   #- snmpd
    - configuration_standards
