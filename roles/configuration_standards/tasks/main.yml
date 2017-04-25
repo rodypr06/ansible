@@ -10,8 +10,8 @@
     state: present
     regexp: '^Banner'
     line: 'Banner /etc/awgsshbanner.txt'
-    notify:
-      - restart sshd
+  notify:
+    - restart sshd
 ##########MOTD Configutation##########
 - name: Install Firemotd
   command: make install arg1
