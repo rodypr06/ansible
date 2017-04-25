@@ -17,6 +17,18 @@
   notify:
     - restart sshd
 
+####Create SAMNT Directory####
+- name: Create /samnt Directory
+  file: dest=/samnt state=directory
+
+####Mount SAMNT NFS####
+- name: Mount samnt Filesystem
+  mount:
+    name: /samnt
+    src: katello-satellite:/samnt
+    fstype: nfs
+    state: present
+
 ####MOTD Configutation####
 - name: Install Firemotd
   command: make install
@@ -80,18 +92,6 @@
     owner: root
     group: root
     mode: 0644
-
-####Create SAMNT Directory####
-- name: Create /samnt Directory
-  file: dest=/samnt state=directory
-
-####Mount SAMNT NFS####
-- name: Mount samnt Filesystem
-  mount:
-    name: /samnt
-    src: katello-satellite:/samnt
-    fstype: nfs
-    state: present
 
 
   
