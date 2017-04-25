@@ -6,7 +6,7 @@
 #
 ####SSH Welcome Banner####
 - name: ssh welcome banner
-  copy: src=awgsshbanner.txt dest=/etc/awgsshbanner.txt owner=root group=root mode=644
+  copy: src=awgsshbanner.txt dest=/etc/awgsshbanner.txt owner=root group=root mode=0644
 
 - name: AWG SSH Banner
   lineinfile:
@@ -61,7 +61,7 @@
     dest: /samnt/scripts/space_monitor.sh
     owner: root
     group: root
-    mode: 751
+    mode: 0751
 
 - name: Rsyslog Configuration
   template:
@@ -69,7 +69,7 @@
     dest: /etc/rsyslog.conf
     owner: root
     group: root
-    mode: 644
+    mode: 0644
   notify:
     - restart rsyslog
 
@@ -79,7 +79,7 @@
     dest: /etc/resolv.conf
     owner: root
     group: root
-    mode: 644
+    mode: 0644
 
 ####Create SAMNT Directory####
 - name: Create /samnt Directory
