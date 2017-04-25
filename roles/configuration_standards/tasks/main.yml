@@ -50,8 +50,9 @@
 - name: VIM color change
   lineinfile:
     dest: /etc/vimrc
+    state: present
     regexp: '^set background='
-  line: 'set background=dark'
+    line: 'set background=dark'
 
 ####Configuration Templates####
 - name: Space Monitoring Script
