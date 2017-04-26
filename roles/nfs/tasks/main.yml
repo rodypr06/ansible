@@ -13,6 +13,14 @@
 ####Create SAMNT Directory####
 - name: Create /samnt Directory
   file: dest=/samnt state=directory
+
+####Unmoount Katello-satellite SAMNT NFS####
+- name: Unmount katello-satellite Filesystem
+  mount:
+    name: /samnt
+    src: katello-satellite:/samnt
+    fstype: nfs
+    state: unmounted
     
 ####Mount SAMNT NFS####
 - name: Mount samnt Filesystem
