@@ -10,6 +10,31 @@
     name: nfs-utils
     state: present
 
+- name: Install VIM
+  yum:
+    name: vim
+    state: present
+
+- name: Install NTP
+  yum:
+    name: ntp
+    state: present
+
+- name: Install logwatch
+  yum:
+    name: logwatch
+    state: present
+
+- name: Install tzdata
+  yum:
+    name: tzdata
+    state: present
+
+- name: Install cifs-utils
+  yum:
+    name: cifs-utils
+    state: present
+
 ####NMON INSTALLATION####
 - name: Install Nmon
   yum: 
