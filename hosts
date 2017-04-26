@@ -33,14 +33,24 @@
 #TEST SERVERS GROUP
 [test]
 chef-workstation
+chef-server
 
 [nonprod]
 aisltest
 aislqa
+aisbattest
+aisbatqa
+batapptest
+batappqa
+qarpeapp
+qarpedb
 graylogtest
+aisfpetest
+aisfpeqa
 
 #PRODUCTION SERVERS GROUP
 [production]
 chef-server
 satellite
 graylog
+aisbat
