@@ -21,14 +21,6 @@
 - name: Create /samnt Directory
   file: dest=/samnt state=directory
 
-####Mount SAMNT NFS####
-- name: Mount samnt Filesystem
-  mount:
-    name: /samnt
-    src: satellite:/samnt
-    fstype: nfs
-    state: mounted
-
 ####Unmount SAMNT old NFS location####
 - name: Unmount samnt katello nfs
   mount:
@@ -36,6 +28,14 @@
     src: katello-satellite:/samnt
     fstype: nfs
     state: unmounted
+    
+####Mount SAMNT NFS####
+- name: Mount samnt Filesystem
+  mount:
+    name: /samnt
+    src: satellite:/samnt
+    fstype: nfs
+    state: mounted
 
 ####MOTD Configutation####
 - name: Install Firemotd
