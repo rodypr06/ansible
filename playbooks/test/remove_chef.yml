@@ -3,5 +3,10 @@
 - hosts: graylogtest
   tasks:
    - name: Remove Chef
+<<<<<<< HEAD
       yum: chef
       state: removed
+=======
+        yum: chef
+        state: removed
+>>>>>>> 831e1c8bf1c336966c52d16221edc78eb74fd102
