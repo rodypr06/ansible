@@ -1,0 +1,24 @@
+---
+###Role: Packages Standards. RPM packages that are required on every server
+###Owned by: Server Team, AWG
+###Maintained by Roderick Rabelo (roderick.rabelo@awginc.com)
+##
+#
+####INSTALLATION OF STANDARD PACKAGES####
+- name: Install Required Packages
+  yum:
+    name: '{{ item }}'
+    with_items:
+      - vim
+      - ntp
+      - logwatch
+      - tzdata
+      - cifs-utils
+      - nfs-utils
+
+####NMON INSTALLATION####
+- name: Install Nmon
+  yum: 
+    name: /samnt/RPMS/nmon-14g-1.el7.rf.x86_64.rpm
+    state: present
+
