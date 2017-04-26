@@ -1,0 +1,7 @@
+---
+####Remove Chef Client from Servers####
+- hosts: test
+  tasks:
+   - name: Remove Chef
+      yum: chef
+      state: removed
