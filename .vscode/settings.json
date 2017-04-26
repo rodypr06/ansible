@@ -1,3 +1,12 @@
 // Place your settings in this file to overwrite default and user settings.
-{
-}
+"files.associations": {
+        "**/defautls/**/*": "ansible",
+        "**/tasks/**/*.yml" : "ansible",
+        "**/handler/*.yml" : "ansible",
+        "**/*_vars/**/*.yml" : "ansible",
+        "**/roles/**/*.yml" : "ansible",
+        "**/playbooks/**/*.yml" : "ansible",
+        "**/*ansible*/**/*.yml" : "ansible",
+        "**/vars/**/*.yml": "ansible",
+        "**/inventory/*/*": "ansible"
+    }
