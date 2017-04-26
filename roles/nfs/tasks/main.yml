@@ -9,18 +9,10 @@
   yum:
     name: nfs-utils
     state: present
-    
+
 ####Create SAMNT Directory####
 - name: Create /samnt Directory
   file: dest=/samnt state=directory
-
-####Unmount SAMNT old NFS location####
-- name: Unmount samnt katello nfs
-  mount:
-    name: /samnt
-    src: katello-satellite:/samnt
-    fstype: nfs
-    state: unmounted
     
 ####Mount SAMNT NFS####
 - name: Mount samnt Filesystem
