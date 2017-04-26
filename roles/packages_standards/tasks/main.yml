@@ -6,14 +6,9 @@
 #
 ####INSTALLATION OF STANDARD PACKAGES####
 - name: Install Required Packages
-  yum: state=present name={{ item }}
-    with_items:
-      - vim
-      - ntp
-      - logwatch
-      - tzdata
-      - cifs-utils
-      - nfs-utils
+  yum:
+    name: nfs
+    state: present
 
 ####NMON INSTALLATION####
 - name: Install Nmon
