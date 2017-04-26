@@ -32,12 +32,22 @@
 
 [test]
 chef-workstation
+chef-server
 
 [nonprod]
 aisltest
 aislqa
+aisbattest
+aisbatqa
+batapptest
+batappqa
+qarpeapp
+qarpedb
 graylogtest
+aisfpetest
+aisfpeqa
 
 [production]
 satellite
 graylog
+aisbat
