@@ -6,8 +6,7 @@
 #
 ####INSTALLATION OF STANDARD PACKAGES####
 - name: Install Required Packages
-  yum:
-    name: "{ item }}"
+  yum: state=present name={{ item }}
     with_items:
       - vim
       - ntp
