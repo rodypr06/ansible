@@ -29,6 +29,14 @@
     fstype: nfs
     state: mounted
 
+####Unmount SAMNT old NFS location####
+- name: Unmount samnt katello nfs
+  mount:
+    name: /samnt
+    src: katello-satellite:/samnt
+    fstype: nfs
+    state: unmounted
+
 ####MOTD Configutation####
 - name: Install Firemotd
   command: make install
