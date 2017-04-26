@@ -29,14 +29,9 @@
 #
 #######################################################################
 #########################AWG SERVERS###################################
-<<<<<<< HEAD
 #
 #TEST SERVERS GROUP
-=======
-
->>>>>>> e4aec255bc1eac4da8d158777096172fffcfc01b
 [test]
-
 chef-workstation
 
 [nonprod]
@@ -46,10 +41,6 @@ graylogtest
 
 #PRODUCTION SERVERS GROUP
 [production]
-<<<<<<< HEAD
-
 chef-server
-=======
 satellite
 graylog
->>>>>>> e4aec255bc1eac4da8d158777096172fffcfc01b
