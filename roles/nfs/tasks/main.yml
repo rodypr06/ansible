@@ -4,6 +4,12 @@
 ###Maintained by Roderick Rabelo (roderick.rabelo@awginc.com)
 ##
 #
+####Makes sure NFS is installed###
+- name: Install NFS
+  yum:
+    name: nfs-utils
+    state: present
+    
 ####Create SAMNT Directory####
 - name: Create /samnt Directory
   file: dest=/samnt state=directory

@@ -2,5 +2,6 @@
 
 - hosts: test
   roles:
+   - nfs
    - packages_standards
    - configuration_standards
