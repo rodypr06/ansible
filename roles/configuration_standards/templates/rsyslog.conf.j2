@@ -1,10 +1,8 @@
-########################################################
-########################################################
-###THIS FILE IS CONTROLLED BY THE SERVER TEAM###########
-###########ANY UNAUTHORIZED CHANGES#####################
-#############WILL BE OVERWRITTEN########################
-########################################################
-########################################################
+##################################################
+###Managed by AWG Server Team, direct changes#####
+#####to this file will be overwritten#############
+##################################################
+
 #### MODULES ####
 #
 # The imjournal module bellow is now used as a message source instead of imuxsock.
@@ -54,4 +52,3 @@ local7.*                                                /var/log/boot.log
 ##### Sending Logs to Graylog Server for AWG Log Collection#####
 *.*@10.1.200.56:5140;RSYSLOG_SyslogProtocol23Format #This is to the Production Graylog (graylog.awg.local)
 *.*@10.2.200.90:5141;RSYSLOG_SyslogProtocol23Format #This is to the Test Graylog (graylogtest.awg.local)
-

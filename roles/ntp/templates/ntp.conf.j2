@@ -1,5 +1,7 @@
-# Managed by AWG Ansible, direct changes
-# to this file will be overwritten
+##################################################
+###Managed by AWG Server Team, direct changes#####
+#####to this file will be overwritten#############
+##################################################
 
 driftfile {{ ntp_driftfile }}
 {% for i in ntp_server %}
@@ -44,8 +46,8 @@ broadcast {{ ntp_broadcast }}
 
 {% if ntp_broadcastclient %}
 broadcastclient
-{% endif %}   
+{% endif %}
 
 {% if ntp_multicastclient %}
 multicastclient {{ ntp_multicastclient }}
-{% endif %}   
+{% endif %}
