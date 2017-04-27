@@ -7,5 +7,11 @@
       - AWG_Server_Team_RPMS_rpm_awg
       - AWG_katello_client_nightly_katello_client
       - rhel-7-server-satellite-tools-6.2-rpms
-      - rhel-7-server-optional-rpms
+      - rhel-7-server-extras-rpms
     state: present
+
+  - name: Disable unwanted Repositories
+    redhat_repos:
+      repos:
+        - rhel-7-server-optional-rpms
+      state: absent
