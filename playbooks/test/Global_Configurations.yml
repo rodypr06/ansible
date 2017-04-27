@@ -1,8 +1,7 @@
 ---
-
 - hosts: test
   roles:
    - satellite_subscription
-#   - nfs
-#   - packages_standards
-#   - configuration_standards
+   - nfs
+   - packages_standards
+   - configuration_standards
