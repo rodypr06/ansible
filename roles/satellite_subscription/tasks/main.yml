@@ -4,10 +4,25 @@
 ###Maintained by Roderick Rabelo (roderick.rabelo@awginc.com)
 ##
 #
+####Verify Katello Certificate####
+- name: Check if katello-ca-consumer is installed
+      shell: rpm -qa | grep katello-ca-consumer
+      register: check_katello_ca
+      failed_when: "'Consider using yum module rather than running rpm' not in check_katello_ca.warnings"
+      tags:
+        - check
+
+####Install Katello Certificate if not installed already####
+- name: Install katello-ca-consumer
+      #yum: name=http://"{{ capsule }}"/pub/katello-ca-consumer-latest.noarch.rpm state=present
+      shell: rpm -Uvh http://satellite.awg.local/pub/katello-ca-consumer-latest.noarch.rpm 
+      when: check_katello_ca.rc == 1
+      tags:
+        install
+
 ####Subscribe servers to Content Manager and assign Redhat Licenses####
 - name: Subscribe to Satellite
   redhat_subscription:
     state: present
-    server_hostname: satellite.awg.local
     activationkey: AWG
     org_id: AWG
