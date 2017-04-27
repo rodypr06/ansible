@@ -1,0 +1,13 @@
+---
+###Role:Satellite Subscription
+###Owned by: Server Team, AWG
+###Maintained by Roderick Rabelo (roderick.rabelo@awginc.com)
+##
+#
+####Subscribe servers to Content Manager and assign Redhat Licenses####
+- name: Subscribe to Satellite
+  redhat_subscription:
+    state: present
+    server_hostname: satellite.awg.local
+    activationkey: AWG
+    org_id: AWG
