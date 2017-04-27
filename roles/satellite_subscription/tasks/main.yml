@@ -1,24 +1,5 @@
----
-###Role:Satellite Subscription
-###Owned by: Server Team, AWG
-###Maintained by Roderick Rabelo (roderick.rabelo@awginc.com)
-##
-#
-####Installs Satellite Certificate####
-- name: Install the katello-ca-consumer-latest.noarch.rpm from {{ sat6_fqdn }}
-  command:  "/usr/bin/yum -y localinstall http://{{ sat6_fqdn }}/pub/katello-ca-consumer-latest.noarch.rpm"
-
-####Register to Satellite####
-- name: Register to Satellite for content 
-  command: "subscription-manager register --org={{ org }} --activationkey={{ activationkey }}"
-  register: 'reg_return'
-
-####Install Katello-agent####
-- name: Install the katello-agent
-  yum:
-    name: katello-agent
-    state: latest
-  when: reg_return|success
-  notify:
-    - Start katello-agent
-    - Enable katello-agent
+- redhat_subscription:
+    state: present
+    server_hostname: satellite.awg.local
+    activationkey: AWG
+    org_id: AWG
