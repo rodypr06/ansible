@@ -10,8 +10,8 @@
       - rhel-7-server-extras-rpms
     state: present
 
-  - name: Disable unwanted Repositories
-    redhat_repos:
-      repos:
-        - rhel-7-server-optional-rpms
-      state: absent
+- name: Disable unwanted Repositories
+  redhat_repos:
+    repos:
+      - rhel-7-server-optional-rpms
+    state: absent
