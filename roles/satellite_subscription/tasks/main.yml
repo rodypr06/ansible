@@ -9,7 +9,7 @@
   command:  "/usr/bin/yum -y localinstall http://{{ sat6_fqdn }}/pub/katello-ca-consumer-latest.noarch.rpm"
 
 ####Register to Satellite####
-- name: Register to Satellite6 only for content 
+- name: Register to Satellite for content 
   command: "subscription-manager register --org={{ org }} --activationkey={{ activationkey }}"
   register: 'reg_return'
 
