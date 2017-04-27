@@ -1,8 +1,11 @@
 ---
-
+#### Global System Configurations and Packages for all AWG Redhat Servers####
 - hosts: test
   roles:
    - satellite_subscription
-#   - nfs
-#   - packages_standards
-#   - configuration_standards
+   - nfs
+   - packages_standards
+   - configuration_standards
+   - postfix
+   - ntp
+   - snmpd
