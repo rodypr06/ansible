@@ -35,6 +35,20 @@
     name: cifs-utils
     state: present
 
+- name: Install Katello Agent
+  yum:
+    name: katello-agent
+    state: present
+
+####Install,starts and enable Cockpit for System Administration WebUI (https://hostname:9090)
+- name: Install Cockpit
+  yum:
+    name: cockpit
+    state: present
+
+- name: Start and Enable Cockpit
+  service: name=cockpit.socket state=started enabled=yes
+
 ####NMON INSTALLATION####
 - name: Install Nmon
   yum: 
