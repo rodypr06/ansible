@@ -8,7 +8,7 @@
 - name: Check if katello-ca-consumer is installed
   shell: rpm -qa | grep katello-ca-consumer
   register: check_katello_ca
-  failed_when: "'Consider using yum module rather than running rpm' not in check_katello_ca.warnings"
+  #failed_when: "'Consider using yum module rather than running rpm' not in check_katello_ca.warnings"
   tags:
    - check
 
