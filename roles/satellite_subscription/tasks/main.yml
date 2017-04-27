@@ -4,27 +4,21 @@
 ###Maintained by Roderick Rabelo (roderick.rabelo@awginc.com)
 ##
 #
-####Verify Katello Certificate####
-- name: Check if katello-ca-consumer is installed
-  command: rpm -qa | grep katello-ca-consumer
-  register: check_katello_ca
-  #failed_when: "'Consider using yum module rather than running rpm' not in check_katello_ca.warnings"
-  tags:
-   - check
-
-####Install Katello Certificate if not installed already####
-- name: Install katello-ca-consumer
-  #yum: name=http://"{{ capsule }}"/pub/katello-ca-consumer-latest.noarch.rpm state=present
-  shell: rpm -Uvh http://satellite.awg.local/pub/katello-ca-consumer-latest.noarch.rpm 
-  when: check_katello_ca.rc == 1
-  tags:
-    - install
+####Installs Satellite Certificate####
+- name: Install the katello-ca-consumer-latest.noarch.rpm from {{ sat6_fqdn }}
+  command:  "/usr/bin/yum -y localinstall http://{{ sat6_fqdn }}/pub/katello-ca-consumer-latest.noarch.rpm"
 
 ####Register to Satellite####
-- name: Register to Satellite
-  command: subscription-manager register --org=AWG --activationkey=AWG
-  register: sat_reg
-  failed_when: "'Unable to find available subscriptions for all your installed products' not in sat_reg.stdout"
-  ignore_errors: true
-  tags:
-    - register_sat
+- name: Register to Satellite6 only for content 
+  command: "subscription-manager register --org={{ org }} --activationkey={{ activationkey }}"
+  register: 'reg_return'
+
+####Install Katello-agent####
+- name: Install the katello-agent
+  yum:
+    name: katello-agent
+    state: latest
+  when: reg_return|success
+  notify:
+    - Start katello-agent
+    - Enable katello-agent
