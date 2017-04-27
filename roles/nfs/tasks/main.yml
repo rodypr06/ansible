@@ -26,6 +26,6 @@
 - name: Mount samnt Filesystem
   mount:
     name: /samnt
-    src: satellite:/samnt
+    src: katello-satellite:/samnt
     fstype: nfs
     state: mounted
