@@ -52,6 +52,6 @@
 ####NMON INSTALLATION####
 - name: Install Nmon
   yum: 
-    name: /samnt/RPMS/nmon-14g-1.el7.rf.x86_64.rpm
+    name: nmon
     state: present
 
