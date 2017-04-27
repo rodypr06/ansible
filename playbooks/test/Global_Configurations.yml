@@ -1,7 +1,17 @@
 ---
+<<<<<<< HEAD
+=======
+#### Global System Configurations and Packages for all AWG Redhat Servers####
+>>>>>>> 2162bb4228cde00678d7d29aa143c2061e605e08
 - hosts: test
   roles:
    - satellite_subscription
    - nfs
    - packages_standards
    - configuration_standards
+<<<<<<< HEAD
+=======
+   - postfix
+   - ntp
+   - snmpd
+>>>>>>> 2162bb4228cde00678d7d29aa143c2061e605e08
