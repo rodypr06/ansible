@@ -9,7 +9,7 @@
   yum:
     name: http://satellite.awg.local/pub/katello-ca-consumer-latest.noarch.rpm
     state: present
-  
+
 ####Subscribe to Satellite for Content####
 - name: Subscribe to Satellite for Content
   redhat_subscription:
@@ -17,3 +17,6 @@
     server_hostname: satellite.awg.local
     activationkey: AWG
     org_id: AWG
+
+####Enable repositories####
+- include: repositories.yml
