@@ -20,9 +20,11 @@
   tags:
     - install
 
-####Subscribe servers to Content Manager and assign Redhat Licenses####
-- name: Subscribe to Satellite
-  redhat_subscription:
-    state: present
-    activationkey: AWG
-    org_id: AWG
+####Register to Satellite####
+- name: Register to Satellite
+  shell: subscription-manager register --org=AWG --activationkey=AWG
+  register: sat_reg
+  failed_when: "'Unable to find available subscriptions for all your installed products' not in sat_reg.stdout"
+  ignore_errors: true
+  tags:
+    - register_sat
