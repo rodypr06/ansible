@@ -20,3 +20,12 @@
 
 ####Enable repositories####
 - include: repositories.yml
+
+####Adds Foreman-proxy public key to Authorized Keys####
+- name: Add Foreman-proxy key to authorized_keys
+  authorized_keys:
+    user: root
+    state: present
+    key: '{{ item }}'
+  with_file:
+    - foreman_proxy_pub_key

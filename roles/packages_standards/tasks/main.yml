@@ -40,6 +40,11 @@
     name: katello-agent
     state: present
 
+- name: Install htop
+  yum:
+    name: htop
+    state: present
+
 ####Install,starts and enable Cockpit for System Administration WebUI (https://hostname:9090)
 - name: Install Cockpit
   yum:
@@ -51,7 +56,6 @@
 
 ####NMON INSTALLATION####
 - name: Install Nmon
-  yum: 
+  yum:
     name: nmon
     state: present
-
