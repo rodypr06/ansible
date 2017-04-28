@@ -1,6 +1,6 @@
 ---
 #### Global System Configurations and Packages for all AWG Redhat Servers####
-- hosts: chef-workstation
+- hosts: infra_nonprod
   roles:
    - satellite_subscription
    - nfs

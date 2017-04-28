@@ -8,6 +8,11 @@
 #   - You can enter hostnames or ip addresses
 #   - A hostname/ip can be a member of multiple groups
 #
+
+##################################
+#### AWG REDHAT SERVER GROUPS ####
+##################################
+
 #### TEST SERVERS #### FOR ANSIBLE CODE TESTING
 [test]
 chef-workstation
@@ -27,7 +32,11 @@ satellite
 graylog
 aisbat
 
+########################################
 #### Servers Grouped by Application ####
+########################################
+
+#### AIS ####
 [ais_nonprod]
 aisltest
 aislqa
