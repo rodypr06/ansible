@@ -1,6 +1,6 @@
 ---
 ####Remove Chef Client from Servers####
-- hosts: graylogtest
+- hosts: chef-workstation
   tasks:
    - name: Remove Chef
      yum:
