@@ -28,5 +28,4 @@
     state: present
     key: '{{ item }}'
   with_file:
-    - satellite_pub_key
     - foreman_pub_key
