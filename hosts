@@ -25,13 +25,13 @@ aisbattest
 aisbatqa
 batapptest
 batappqa
-qarpeapp
-qarpedb
+#qarpeapp
+#qarpedb
 graylogtest
 #aisfpetest
 aisfpeqa
-rtlapp
-rtlappdb-new
+#rtlapp
+#rtlappdb-new
 
 ######PRODUCTION SERVERS######
 
