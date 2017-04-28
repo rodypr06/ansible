@@ -2,7 +2,10 @@
 
 - hosts: nonprod
   roles:
-   - ntp
-   - postfix
-   - snmpd
-   - sudo
+  - satellite_subscription
+  - nfs
+  - packages_standards
+  - configuration_standards
+  - postfix
+  - ntp
+  - snmpd
