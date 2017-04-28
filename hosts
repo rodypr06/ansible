@@ -8,34 +8,46 @@
 #   - You can enter hostnames or ip addresses
 #   - A hostname/ip can be a member of multiple groups
 #
-#######################################################################
-#########################AWG SERVERS###################################
-
-######TEST SERVERS##### FOR ANSIBLE CODE TESTING ONLY
+#### TEST SERVERS #### FOR ANSIBLE CODE TESTING
 [test]
 chef-workstation
 wfrhel
 rrhel
 
-######NON PRODUCTION SERVERS#####
-[nonprod]
-aisltest
-aislqa
-aisbattest
-aisbatqa
-batapptest
-batappqa
-#qarpeapp
-#qarpedb
-graylogtest
-#aisfpetest
-aisfpeqa
-#rtlapp
-#rtlappdb-new
+#### NON PRODUCTION SERVERS ####
+[nonprod:children]
+ais_nonprod
+batch_nonprod
+rpe_nonprod
+infra_nonprod
 
-######PRODUCTION SERVERS######
-
+#### PRODUCTION SERVERS ####
 [production]
 satellite
 graylog
 aisbat
+
+#### Servers Grouped by Application ####
+[ais_nonprod]
+aisltest
+aislqa
+aisbattest
+aisbatqa
+#aisfpetest
+aisfpeqa
+
+#### BATCH ####
+[batch_nonprod]
+batapptest
+batappqa
+
+#### RPE ####
+[rpe_nonprod]
+#qarpeapp
+#qarpedb
+#rtlapp
+#rtlappdb-new
+
+#### INFRA ####
+[infra_nonprod]
+graylogtest
