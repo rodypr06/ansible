@@ -14,7 +14,6 @@
 ######TEST SERVERS##### FOR ANSIBLE CODE TESTING ONLY
 [test]
 chef-workstation
-chef-server
 
 ######NON PRODUCTION SERVERS#####
 [nonprod]
@@ -27,8 +26,10 @@ batappqa
 qarpeapp
 qarpedb
 graylogtest
-aisfpetest
+#aisfpetest
 aisfpeqa
+rtlapp
+rtlappdb-new
 
 ######PRODUCTION SERVERS######
 
