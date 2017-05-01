@@ -27,9 +27,10 @@ infra_nonprod
 
 #### PRODUCTION SERVERS ####
 [production]
-satellite
-graylog
-aisbat
+[ais_prod]
+[batch_prod]
+[rpe_prod]
+[infra_prod]
 
 ########################################
 #### Servers Grouped by Application ####
@@ -41,21 +42,37 @@ aisltest
 aislqa
 aisbattest
 aisbatqa
-#aisfpetest
+aisfpetest
 aisfpeqa
+
+[ais_prod]
+aislprod
+aisbat
+aisfpe
 
 #### BATCH ####
 [batch_nonprod]
 batapptest
 batappqa
 
+[batch_prod]
+batapp
+
 #### RPE ####
 [rpe_nonprod]
-#qarpeapp
-#qarpedb
-#rtlapp
-#rtlappdb-new
+qarpeapp
+qarpedb
+rtlapp
+rtlappdb-new
+
+[rpe_prod]
+prpeapp
+prpedb
 
 #### INFRA ####
 [infra_nonprod]
 graylogtest
+
+[infra_prod]
+graylog
+satellite
