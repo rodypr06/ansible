@@ -1,0 +1,12 @@
+---
+- name: Ensure postfix is installed (RedHat).
+  yum: name=postfix state=installed
+  when: ansible_os_family == 'RedHat'
+
+- name: Copy the main.conf template file
+  template: src=main.conf.j2 dest=/etc/postfix/main.conf
+  notify: 
+   - restart postfix
+
+- name: Ensure postfix is started and enabled at boot.
+  service: name=postfix state=started enabled=yes

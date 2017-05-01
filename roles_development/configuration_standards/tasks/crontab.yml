@@ -1,0 +1,26 @@
+---
+###Role: Configuration Standards
+###Owned by: Server Team, AWG
+###Maintained by Roderick Rabelo (roderick.rabelo@awginc.com)
+##
+#
+##########Crontab Entries for root user##########
+- name: Space Monitoring Script
+  cron:
+    name: "Space Monitoring runs every 15mins"
+    minute: "*/15"
+    job: "/samnt/scripts/space_monitor.sh > /dev/null 2>&1"
+
+- name: System update count for MOTD
+  cron:
+    name: "MOTD Update Count"
+    minute: "0"
+    hour: "6,11"
+    job: "/usr/local/bin/FireMotD -S > /dev/null 2>&1"     
+
+
+
+
+
+
+

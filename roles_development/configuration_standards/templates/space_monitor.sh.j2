@@ -1,0 +1,46 @@
+#!/bin/bash
+##################################################
+###Managed by AWG Server Team, direct changes#####
+#####to this file will be overwritten#############
+##################################################
+
+#######Script to monitor Filesystem Space and sends an alert#####
+#By:Roderick Rabelo ###########
+#Wrote: February 27th, 2015###############
+
+#admin email account
+ADMIN="roderick.rabelo@awginc.com,bferguso@awginc.com,mcolborn@awginc.com,robin.loeffler@awginc.com"
+
+# set usage alert threshold
+THRESHOLD=90
+
+#hostname
+HOSTNAME=$(hostname)
+
+#mail client
+MAIL=/bin/mail
+
+# store all disk info here
+EMAIL=""
+
+for line in $(df -hP | egrep '^/dev/' | awk '{ print $6 "_:_" $5 }')
+do
+
+        part=$(echo "$line" | awk -F"_:_" '{ print $1 }')
+        part_usage=$(echo "$line" | awk -F"_:_" '{ print $2 }' | cut -d'%' -f1 )
+
+        if [ $part_usage -ge $THRESHOLD -a -z "$EMAIL" ];
+        then
+                EMAIL="$(date): Running out of space on $HOSTNAME\n"
+                EMAIL="$EMAIL\n$part ($part_usage%) >= (Threshold = $THRESHOLD%)"
+
+        elif [ $part_usage -ge $THRESHOLD ];
+        then
+                EMAIL="$EMAIL\n$part ($part_usage%) >= (Threshold = $THRESHOLD%)"
+        fi
+done
+
+if [ -n "$EMAIL" ];
+then
+        echo -e "$EMAIL" | $MAIL -s "Alert: Filesystem(s) almost out of space on $HOSTNAME" "$ADMIN"
+fi

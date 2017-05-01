@@ -1,6 +1,6 @@
 ---
 ####Remove Chef Client from Servers####
-- hosts: nonprod
+- hosts: all
   tasks:
    - name: Remove Chef
      yum:

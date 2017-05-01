@@ -1,0 +1,21 @@
+---
+
+snmpd_sysLocation: 'Vmware Vcenter'
+snmpd_contact: 'roderick.rabelo@awginc.com'
+
+snmpd_clients:
+   - 127.0.0.1
+   - 10.1.1.1
+
+snmpd_v2_source:
+   - 127.0.0.1
+   - 10.0.0.0/8
+
+snmpd_v2_snmpcommunity: awginc
+
+snmpd_ipv6: false
+snmpd_loopback_only: true
+snmpd_agentx: false
+
+## install also snmpget, snmpwalk...
+snmpd_with_client: false
