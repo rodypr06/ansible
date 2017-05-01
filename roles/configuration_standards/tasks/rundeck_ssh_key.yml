@@ -15,7 +15,7 @@
 
   ####Adds Rundeck public key to Authorized Keys####
 - name: Add Rundeck key to root authorized_keys
-    authorized_key:
+  authorized_key:
     user: root
     state: present
     key: '{{ item }}'
