@@ -7,7 +7,7 @@
 ####Makes sure NFS is installed###
 - name: Install NFS
   yum:
-    name: nfs-utils
+    name: nfs-utilities
     state: present
 
 ####Create SAMNT Directory####
