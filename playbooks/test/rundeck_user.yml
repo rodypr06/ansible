@@ -1,0 +1,7 @@
+---
+- name: Add User Rundeck
+  user:
+    name: rundeck
+    comment: "Server Team Job Scheduler"
+    groups: root
+    password: AWGtemp!
