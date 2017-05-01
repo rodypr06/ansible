@@ -42,6 +42,9 @@
 ####so we need to include it to this main.yml file####
 - include: crontab.yml
 
+####Add Rundeck pub Key to root authorized_key####
+- include: rundeck_ssh_key.yml
+
 ####Disable Server Local Firewall####
 - name: Disable Firewalld
   service: name=firewalld state=stopped
