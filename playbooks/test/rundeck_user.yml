@@ -1,7 +1,10 @@
 ---
-- name: Add User Rundeck
-  user:
-    name: rundeck
-    comment: "Server Team Job Scheduler"
-    groups: root
-    password: AWGtemp!
+####Add rundeck user####
+- hosts: test
+  tasks:
+  - name: Add User Rundeck
+    user:
+      name: rundeck
+      comment: "Server Team Job Scheduler"
+      groups: root
+      password: AWGtemp!
