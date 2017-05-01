@@ -5,5 +5,5 @@
   - name: Add User Rundeck
     user:
       name: rundeck
-      comment: "Server Team Job Scheduler"
       groups: root
+      password: mi9VBOZFti7cM
