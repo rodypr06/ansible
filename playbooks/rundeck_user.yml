@@ -1,6 +1,6 @@
 ---
 ####Add rundeck user####
-- hosts: test
+- hosts: nonprod
   tasks:
   - name: Add User Rundeck
     user:
