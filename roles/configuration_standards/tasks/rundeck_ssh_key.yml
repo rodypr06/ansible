@@ -4,10 +4,19 @@
 ###Maintained by Roderick Rabelo (roderick.rabelo@awginc.com)
 ##
 #
-####Adds Rundeck public key to root Authorized Keys####
-- name: Add Rundeck key to root authorized_keys
+####Adds Rundeck public key to Authorized Keys####
+- name: Add Rundeck key to authorized_keys
   authorized_key:
     user: rundeck
+    state: present
+    key: '{{ item }}'
+  with_file:
+    - rundeck_key
+
+  ####Adds Rundeck public key to Authorized Keys####
+- name: Add Rundeck key to root authorized_keys
+    authorized_key:
+    user: root
     state: present
     key: '{{ item }}'
   with_file:
