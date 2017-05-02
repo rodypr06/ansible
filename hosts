@@ -57,6 +57,7 @@ batappqa
 
 [batch_prod]
 batapp
+apparch
 
 #### RPE ####
 [rpe_nonprod]
