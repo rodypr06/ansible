@@ -31,6 +31,7 @@ infra_nonprod
 [batch_prod]
 [rpe_prod]
 [infra_prod]
+[was_prod]
 
 ########################################
 #### Servers Grouped by Application ####
@@ -69,6 +70,11 @@ rtlappdb-new
 [rpe_prod]
 prpeapp
 prpedb
+
+#### WAS ###
+[was_prod]
+wasds01
+washttp01
 
 #### INFRA ####
 [infra_nonprod]
