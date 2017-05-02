@@ -17,6 +17,7 @@
 [test]
 chef-workstation
 wfrhel
+rheltest
 
 #### NON PRODUCTION SERVERS ####
 [nonprod:children]
