@@ -26,7 +26,7 @@ rpe_nonprod
 infra_nonprod
 
 #### PRODUCTION SERVERS ####
-[production]
+[production:children]
 [ais_prod]
 [batch_prod]
 [rpe_prod]
