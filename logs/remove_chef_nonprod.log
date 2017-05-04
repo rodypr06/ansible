@@ -1,0 +1,45 @@
+
+PLAY [nonprod] *****************************************************************************************************************************************
+
+TASK [Gathering Facts] *********************************************************************************************************************************
+ok: [aisbattest]
+ok: [aisbatqa]
+ok: [batappqa]
+ok: [batapptest]
+ok: [aisltest]
+ok: [qarpedb]
+ok: [qarpeapp]
+ok: [aisfpeqa]
+ok: [rtlapp]
+ok: [aislqa]
+ok: [rtlappdb-new]
+ok: [graylogtest]
+
+TASK [Remove Chef] *************************************************************************************************************************************
+ok: [aisltest]
+ok: [aisbattest]
+ok: [aislqa]
+ok: [aisbatqa]
+ok: [qarpedb]
+ok: [qarpeapp]
+ok: [batapptest]
+ok: [batappqa]
+ok: [aisfpeqa]
+ok: [graylogtest]
+ok: [rtlapp]
+ok: [rtlappdb-new]
+
+PLAY RECAP *********************************************************************************************************************************************
+aisbatqa                   : ok=2    changed=0    unreachable=0    failed=0   
+aisbattest                 : ok=2    changed=0    unreachable=0    failed=0   
+aisfpeqa                   : ok=2    changed=0    unreachable=0    failed=0   
+aislqa                     : ok=2    changed=0    unreachable=0    failed=0   
+aisltest                   : ok=2    changed=0    unreachable=0    failed=0   
+batappqa                   : ok=2    changed=0    unreachable=0    failed=0   
+batapptest                 : ok=2    changed=0    unreachable=0    failed=0   
+graylogtest                : ok=2    changed=0    unreachable=0    failed=0   
+qarpeapp                   : ok=2    changed=0    unreachable=0    failed=0   
+qarpedb                    : ok=2    changed=0    unreachable=0    failed=0   
+rtlapp                     : ok=2    changed=0    unreachable=0    failed=0   
+rtlappdb-new               : ok=2    changed=0    unreachable=0    failed=0   
+
