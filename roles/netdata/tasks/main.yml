@@ -1,6 +1,6 @@
 ---
 - name: Check if Netdata is installed
-  command: ls -la | grep netdata
+  command: ls -la /etc | grep netdata
   register: netdata_check
 
 - name: "Install pre-requisites"
