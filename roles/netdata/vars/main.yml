@@ -8,3 +8,4 @@ rpe_prod: /prod/rpe_servers
 was_prod: /prod/was_servers
 infra_nonprod: /nonprod/infra_servers
 infra_prod: /prod/infra_servers
+test: /test/sandboxes
