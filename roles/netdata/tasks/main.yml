@@ -2,6 +2,8 @@
 #Install Pre-requisites
 - name: "Install pre-requisites"
   shell: curl -Ss 'https://raw.githubusercontent.com/firehol/netdata-demo-site/master/install-required-packages.sh' >/tmp/kickstart.sh && bash /tmp/kickstart.sh -i netdata-all --dont-wait --non-interactive
+  register: pre
+  debug: var=pre.stdout_lines
 
 #Clone reopo into source and keep it for later (upgrade)
 - name: "Clone repo"
@@ -15,6 +17,8 @@
 - name: "Installation"
   shell: cd /usr/src/netdata/ && ./netdata-installer.sh --dont-wait --libs-are-really-here
 # notify:  Restart netdata
+  register: pre
+  debug: var=pre.stdout_lines
   when: gitupdate.changed
 
 - name: Netdata AWG Configurations
