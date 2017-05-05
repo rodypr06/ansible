@@ -1,13 +1,7 @@
 ---
-- name: Check if Netdata is installed
-  command: "ls -la /etc | grep netdata"
-  register: netdata_check
-  failed_when: False
-  no_log: True
-
+#Install Pre-requisites
 - name: "Install pre-requisites"
   shell: curl -Ss 'https://raw.githubusercontent.com/firehol/netdata-demo-site/master/install-required-packages.sh' >/tmp/kickstart.sh && bash /tmp/kickstart.sh -i netdata-all --dont-wait --non-interactive
-  when: netdata_check.rc == 0
 
 #Clone reopo into source and keep it for later (upgrade)
 - name: "Clone repo"
