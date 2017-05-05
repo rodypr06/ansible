@@ -1,5 +1,5 @@
 ---
 ####Install of Netdata for Performance Stats###
-- hosts: rheltest.awg.local
+- hosts: infra_nonprod
   roles:
     - netdata
