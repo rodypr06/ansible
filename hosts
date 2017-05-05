@@ -17,7 +17,7 @@
 [test]
 pmtls.awg.local
 wfrhel.awg.local
-rheltest.awg.local
+rheltest
 
 #### NON PRODUCTION SERVERS ####
 [nonprod:children]

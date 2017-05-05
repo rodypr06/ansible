@@ -107,7 +107,7 @@
    {% if ansible_fqdn in groups['infra_nonprod'] %}
 	 prefix = {{ infra_nonprod }}
    {% endif %}
-   {% if ansible_fqdn in groups['test'] %}
+   {% if inventory_hostname in groups['test'] %}
 	 prefix = {{ test }}
    {% endif %}
    {% if ansible_fqdn in groups['ais_nonprod'] %}
