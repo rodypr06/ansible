@@ -80,6 +80,7 @@ washttp01
 #### INFRA ####
 [infra_nonprod]
 graylogtest
+rheltest
 
 [infra_prod]
 graylog

@@ -104,10 +104,10 @@
 	 data source = average
 	 type = graphite
 	 destination = pmtls:2003
-   {% if 'ais_nonprod' in group_names %}
+   {% if ansible_hostname in groups['ais_nonprod'] %}
 	 prefix = {{ ais_nonprod }}
-   {% endif %}
-   {% if 'infra_nonprod' in group_names %}
+   {% else %}
+   {% if 'ansible_hostname' in groups['infra_nonprod'] %}
 	 prefix = {{ infra_nonprod }}
    {% endif %}
 	 hostname = {{ ansible_hostname }}
