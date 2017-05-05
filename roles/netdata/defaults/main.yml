@@ -1,19 +1,4 @@
 ---
-# defaults file for jffz.netdata
-debian:
-  packages:
-    - autoconf
-    - autoconf-archive
-    - autogen
-    - automake
-    - gcc
-    - git
-    - libmnl-dev
-    - make
-    - pkg-config
-    - uuid-dev
-    - zlib1g-dev
-
 rhel:
   packages:
     - autoconf
@@ -29,3 +14,13 @@ rhel:
     - make
     - pkgconfig
     - zlib-devel
+
+  ais_nonprod: /nonprod/ais_servers
+  ais_prod: /prod/ais_servers
+  batch_nonprod: /nonprod/batch_servers
+  batch_prod: /prod/batch_servers
+  rpe_nonprod: /nonprod/rpe_servers
+  rpe_prod: /prod/rpe_servers
+  was_prod: /prod/was_servers
+  infra_nonprod: /nonprod/infra_servers
+  infra_prod: /prod/infra_servers

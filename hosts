@@ -15,7 +15,7 @@
 
 #### TEST SERVERS #### FOR ANSIBLE CODE TESTING
 [test]
-chef-workstation
+pmtls
 wfrhel
 rheltest
 
