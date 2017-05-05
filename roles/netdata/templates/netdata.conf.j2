@@ -104,34 +104,34 @@
 	 data source = average
 	 type = graphite
 	 destination = pmtls:2003
-   {% if ansible_fqdn in groups['infra_nonprod'] %}
+   {% if inventory_hostname in groups['infra_nonprod'] %}
 	 prefix = {{ infra_nonprod }}
    {% endif %}
    {% if inventory_hostname in groups['test'] %}
 	 prefix = {{ test }}
    {% endif %}
-   {% if ansible_fqdn in groups['ais_nonprod'] %}
+   {% if inventory_hostname in groups['ais_nonprod'] %}
 	 prefix = {{ ais_nonprod }}
    {% endif %}
-   {% if ansible_fqdn in groups['ais_prod'] %}
+   {% if inventory_hostname in groups['ais_prod'] %}
 	 prefix = {{ ais_prod }}
    {% endif %}
-   {% if ansible_fqdn in groups['batch_nonprod'] %}
+   {% if inventory_hostname in groups['batch_nonprod'] %}
 	 prefix = {{ batch_nonprod }}
    {% endif %}
-   {% if ansible_fqdn in groups['batch_prod'] %}
+   {% if inventory_hostname in groups['batch_prod'] %}
 	 prefix = {{ batch_prod }}
    {% endif %}
-   {% if ansible_fqdn in groups['rpe_nonprod'] %}
+   {% if inventory_hostname in groups['rpe_nonprod'] %}
 	 prefix = {{ rpe_nonprod }}
    {% endif %}
-   {% if ansible_fqdn in groups['rpe_prod'] %}
+   {% if inventory_hostname in groups['rpe_prod'] %}
 	 prefix = {{ rpe_prod }}
    {% endif %}
-   {% if ansible_fqdn in groups['was_prod'] %}
+   {% if inventory_hostname in groups['was_prod'] %}
 	 prefix = {{ was_prod }}
    {% endif %}
-   {% if ansible_fqdn in groups['infra_prod'] %}
+   {% if inventory_hostname in groups['infra_prod'] %}
 	 prefix = {{ infra_prod }}
    {% endif %}
 
