@@ -27,7 +27,7 @@
   template:
     src: netdata.conf.j2
     dest: /etc/netdata/netdata.conf
-    notify:
+  notify:
       - Restart netdata
 
 # we keep the sources for upgrades
