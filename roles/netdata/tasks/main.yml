@@ -21,13 +21,11 @@
   shell: cd /usr/src/netdata/ && ./netdata-installer.sh --dont-wait --libs-are-really-here
 # notify:  Restart netdata
   when: gitupdate.changed
-  register: installation
 
 - name: Netdata AWG Configurations
   template:
     src: netdata.conf.j2
     dest: /etc/netdata/netdata.conf
-    when: installation:changed
   notify:
       - Restart netdata
 
