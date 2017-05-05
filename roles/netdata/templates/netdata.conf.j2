@@ -106,9 +106,9 @@
 	 destination = pmtls:2003
    {% if ansible_fqdn in groups['infra_nonprod'] %}
 	 prefix = {{ infra_nonprod }}
-   {% else %}
+   {% endif %}
    {% if ansible_fqdn in groups['test'] %}
-     prefix = {{ test }}
+         prefix = {{ test }}
    {% endif %}
 	 hostname = {{ ansible_hostname }}
 	 update every = 10
