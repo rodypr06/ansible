@@ -108,7 +108,31 @@
 	 prefix = {{ infra_nonprod }}
    {% endif %}
    {% if ansible_fqdn in groups['test'] %}
-         prefix = {{ test }}
+     prefix = {{ test }}
+   {% endif %}
+   {% if ansible_fqdn in groups['ais_nonprod'] %}
+     prefix = {{ ais_nonprod }}
+   {% endif %}
+   {% if ansible_fqdn in groups['ais_prod'] %}
+     prefix = {{ ais_prod }}
+   {% endif %}
+   {% if ansible_fqdn in groups['batch_nonprod'] %}
+     prefix = {{ batch_nonprod }}
+   {% endif %}
+   {% if ansible_fqdn in groups['batch_prod'] %}
+     prefix = {{ batch_prod }}
+   {% endif %}
+   {% if ansible_fqdn in groups['rpe_nonprod'] %}
+     prefix = {{ rpe_nonprod }}
+   {% endif %}
+   {% if ansible_fqdn in groups['rpe_prod'] %}
+     prefix = {{ rpe_prod }}
+   {% endif %}
+   {% if ansible_fqdn in groups['was_prod'] %}
+     prefix = {{ was_prod }}
+   {% endif %}
+   {% if ansible_fqdn in groups['infra_prod'] %}
+     prefix = {{ infra_prod }}
    {% endif %}
 	 hostname = {{ ansible_hostname }}
 	 update every = 10
