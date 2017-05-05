@@ -15,9 +15,9 @@
 
 #### TEST SERVERS #### FOR ANSIBLE CODE TESTING
 [test]
-pmtls
-wfrhel
-rheltest
+pmtls.awg.local
+wfrhel.awg.local
+rheltest.awg.local
 
 #### NON PRODUCTION SERVERS ####
 [nonprod:children]
@@ -40,47 +40,47 @@ infra_nonprod
 
 #### AIS ####
 [ais_nonprod]
-aisltest
-aislqa
-aisbattest
-aisbatqa
-aisfpetest
-aisfpeqa
+aisltest.awg.local
+aislqa.awg.local
+aisbattest.awg.local
+aisbatqa.awg.local
+aisfpetest.awg.local
+aisfpeqa.awg.local
 
 [ais_prod]
-aislprod
-aisbat
-aisfpe
+aislprod.awg.local
+aisbat.awg.local
+aisfpe.awg.local
 
 #### BATCH ####
 [batch_nonprod]
-batapptest
-batappqa
+batapptest.awg.local
+batappqa.awg.local
 
 [batch_prod]
-batapp
-apparch
+batapp.awg.local
+apparch.awg.local
 
 #### RPE ####
 [rpe_nonprod]
-qarpeapp
-qarpedb
-rtlapp
-rtlappdb-new
+qarpeapp.awg.local
+qarpedb.awg.local
+rtlapp.awg.local
+rtlappdb-new.awg.local
 
 [rpe_prod]
-prpeapp
-prpedb
+prpeapp.awg.local
+prpedb.awg.local
 
 #### WAS ###
 [was_prod]
-wasds01
-washttp01
+wasds01.awg.local
+washttp01.awg.local
 
 #### INFRA ####
 [infra_nonprod]
-graylogtest
+graylogtest.awg.local
 
 [infra_prod]
-graylog
-satellite
+graylog.awg.local
+satellite.awg.local
