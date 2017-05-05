@@ -105,7 +105,10 @@
 	 type = graphite
 	 destination = pmtls:2003
    {% if host in groups['ais_nonprod'] %}
-	 prefix = test/sandboxes
+	 prefix = {{ ais_nonprod }}
+   {% endif %}
+   {% if host in groups['infra_nonprod'] %}
+	 prefix = {{ infra_nonprod }}
    {% endif %}
 	 hostname = {{ ansible_hostname }}
 	 update every = 10
