@@ -15,7 +15,7 @@
 [global]
 	# glibc malloc arena max for plugins = 1
 	# glibc malloc arena max for netdata = 1
-	# hostname = rheltest
+	# hostname = {{ ansible_hostname }}
 	# history = 3996
 	# update every = 1
 	# config directory = /etc/netdata
@@ -392,62 +392,6 @@
 	# inodes usage = no
 
 [plugin:proc:diskspace:/run/user/42/gvfs]
-	# space usage = no
-	# inodes usage = no
-
-[plugin:proc:diskspace:/var/lib/docker/overlay/3323169193ac495895edf1d41302acaf9e9240aa7297b124220e7e4c2232712f/merged]
-	# space usage = no
-	# inodes usage = no
-
-[plugin:proc:diskspace:/var/lib/docker/overlay/b40d76bbb00c9834b40920ed06a40fdc8a1a8a5f0ec5197684c740809a1a3980/merged]
-	# space usage = no
-	# inodes usage = no
-
-[plugin:proc:diskspace:/var/lib/docker/overlay/f1aa26d5ae90e913ee72d8e02450e6f302c17c69ed306844fb49f39c6d92aad4/merged]
-	# space usage = no
-	# inodes usage = no
-
-[plugin:proc:diskspace:/var/lib/docker/overlay/96cef09af40a2eff3b90ed1fbd2ed007979ef88570baeea653434ec73d893639/merged]
-	# space usage = no
-	# inodes usage = no
-
-[plugin:proc:diskspace:/var/lib/docker/containers/662b554dc56cad4d46da5ccf228218399f4d4311c4d2a86ef9fd4ba065a9771b/shm]
-	# space usage = no
-	# inodes usage = no
-
-[plugin:proc:diskspace:/var/lib/docker/containers/93a0f1d84f39963f32692bf26e509e65e416984aa1b9960d1e8c004ea027f326/shm]
-	# space usage = no
-	# inodes usage = no
-
-[plugin:proc:diskspace:/var/lib/docker/containers/f7dbb63f1195006e36eed164b87e2d1c44fa1f1df3e1401568a0a1b377238011/shm]
-	# space usage = no
-	# inodes usage = no
-
-[plugin:proc:diskspace:/var/lib/docker/containers/c0b74e2c72cd2c260c7bbd43fc19a147d13c3091d78cca2023a641cfbff4af21/shm]
-	# space usage = no
-	# inodes usage = no
-
-[plugin:proc:diskspace:/var/lib/docker/overlay/56381a8c8528093ced417bbc0ec17a5ab31592a3fd8a0f391d08adacae2480c6/merged]
-	# space usage = no
-	# inodes usage = no
-
-[plugin:proc:diskspace:/var/lib/docker/overlay/27a5f48fefe8c57a39d0f5f777a9e57c60c7ad3081b1a266f0850307777fd692/merged]
-	# space usage = no
-	# inodes usage = no
-
-[plugin:proc:diskspace:/var/lib/docker/containers/c5d47c69d54a172c952960bb5c61491874da8c574be44215f385fcc920b48c27/shm]
-	# space usage = no
-	# inodes usage = no
-
-[plugin:proc:diskspace:/var/lib/docker/containers/c76158bf1fadf30bb97b23413bf8f923661b41e215ff796951342d7aa127a11e/shm]
-	# space usage = no
-	# inodes usage = no
-
-[plugin:proc:diskspace:/var/lib/docker/overlay/6535de99e148e4bde2f12a186d5f5e7c389ad89b972275ee385a8ce3329c3c7f/merged]
-	# space usage = no
-	# inodes usage = no
-
-[plugin:proc:diskspace:/var/lib/docker/containers/6c352bc60e7de664dc2f1596a571cb7e273eb4ad6676df0ed1dd48afeb463707/shm]
 	# space usage = no
 	# inodes usage = no
 
