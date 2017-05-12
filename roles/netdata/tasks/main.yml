@@ -1,11 +1,10 @@
 ---
-#Install Pre-requisites
+####Install Pre-requisites####
 - name: "Install pre-requisites"
   shell: curl -Ss 'https://raw.githubusercontent.com/firehol/netdata-demo-site/master/install-required-packages.sh' >/tmp/kickstart.sh && bash /tmp/kickstart.sh -i netdata-all --dont-wait --non-interactive
-  register: pre
 - debug: var=pre.stdout_lines
 
-#Clone reopo into source and keep it for later (upgrade)
+####Clone reopo into source and keep it for later (upgrade)####
 - name: "Clone repo"
   git:
     clone: yes
@@ -14,20 +13,26 @@
     dest: /usr/src/netdata
   register: gitupdate
 
+#### Installation of netdata using their script####
 - name: "Installation"
   shell: cd /usr/src/netdata/ && ./netdata-installer.sh --dont-wait --libs-are-really-here
   when: gitupdate.changed
-  register: install
 - debug: var=install.stdout_lines
 
-
-
+##Configuration file Template
 - name: Netdata AWG Configurations
   template:
     src: netdata.conf.j2
     dest: /etc/netdata/netdata.conf
   notify:
       - Restart netdata
+
+####Enable Notifications####
+- lineinfile:
+    dest: /etc/netdata/health_alarm_notify.conf
+    regexp: '^DEFAULT_RECIPIENT_EMAIL="root"'
+    line: 'DEFAULT_RECIPIENT_EMAIL="roderick.rabelo@awginc.com|critical"'
+    backrefs: yes
 
 # we keep the sources for upgrades
 #- name: "Clean git repo"
