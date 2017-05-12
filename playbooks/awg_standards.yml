@@ -1,6 +1,6 @@
 ---
 #### Global System Configurations and Packages for all AWG Redhat Servers####
-- hosts: nonprod
+- hosts: all
   roles:
    - satellite_subscription
    - nfs
