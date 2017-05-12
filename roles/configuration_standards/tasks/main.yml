@@ -66,13 +66,13 @@
     group: root
     mode: 0751
 
-- name: Resolv Configuration
-  template:
-    src: resolv.conf.j2
-    dest: /etc/resolv.conf
-    owner: root
-    group: root
-    mode: 0644
+#- name: Resolv Configuration
+#  template:
+#    src: resolv.conf.j2
+#    dest: /etc/resolv.conf
+#    owner: root
+#    group: root
+#    mode: 0644
 
 ####Logwatch Configuration####
 - name: Logwatch Configurations

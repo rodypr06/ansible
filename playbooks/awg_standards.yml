@@ -3,6 +3,7 @@
 - hosts: all
   roles:
    - satellite_subscription
+   - resolv     
    - nfs
    - packages_standards
    - configuration_standards
