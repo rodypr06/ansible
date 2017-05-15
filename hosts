@@ -18,7 +18,6 @@
 pmtls
 wfrhel
 rheltest
-bill_rocks
 
 #### NON PRODUCTION SERVERS ####
 [nonprod:children]

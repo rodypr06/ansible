@@ -1,4 +1,0 @@
----
-####Restart/Enable rsyslog####
-- name: restart rsyslog
-  service: name=rsyslog state=restarted enabled=yes
