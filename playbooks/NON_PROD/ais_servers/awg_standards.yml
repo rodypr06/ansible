@@ -1,0 +1,12 @@
+---
+#### Global System Configurations and Packages for all AWG Redhat Servers####
+- hosts: ais_nonprod
+  roles:
+   - satellite_subscription
+   - resolv
+   - nfs
+   - packages_standards
+   - configuration_standards
+   - postfix
+   - ntp
+   - snmpd

@@ -34,6 +34,15 @@
     line: 'DEFAULT_RECIPIENT_EMAIL="roderick.rabelo@awginc.com|critical"'
     backrefs: yes
 
+####Disable network drop packages notifications####
+- name: stat net.conf
+  stat: path=/etc/netdata/health.d/net.conf
+  register: netconf
+
+- name: Disable Network notifications
+    command: mv /etc/netdata/health.d/net.conf /etc/netdata/health.d/net.conf.DISABLED
+    when: netconf.stat.exists
+
 # we keep the sources for upgrades
 #- name: "Clean git repo"
 #  file:

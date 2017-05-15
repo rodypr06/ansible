@@ -1,9 +1,9 @@
 ---
 #### Global System Configurations and Packages for all AWG Redhat Servers####
-- hosts: all
+- hosts: was_prod
   roles:
    - satellite_subscription
-   - resolv     
+   - resolv
    - nfs
    - packages_standards
    - configuration_standards
