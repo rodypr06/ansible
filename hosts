@@ -15,7 +15,6 @@
 
 #### TEST SERVERS #### FOR ANSIBLE CODE TESTING
 [test]
-pmtls
 wfrhel
 rheltest
 
@@ -27,12 +26,12 @@ rpe_nonprod
 infra_nonprod
 
 #### PRODUCTION SERVERS ####
-[production:children]
-[ais_prod]
-[batch_prod]
-[rpe_prod]
-[infra_prod]
-[was_prod]
+[prod:children]
+ais_prod
+batch_prod
+rpe_prod
+infra_prod
+was_prod
 
 ########################################
 #### Servers Grouped by Application ####
@@ -75,7 +74,9 @@ prpedb
 #### WAS ###
 [was_prod]
 wasds01
+#wasds02
 washttp01
+#washttp02
 
 #### INFRA ####
 [infra_nonprod]
@@ -84,3 +85,4 @@ graylogtest
 [infra_prod]
 graylog
 satellite
+pmtls
