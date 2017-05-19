@@ -1,9 +1,0 @@
----
-####Add rundeck user####
-- hosts: nonprod
-  tasks:
-  - name: Add User Rundeck
-    user:
-      name: rundeck
-      groups: root
-      password: mi9VBOZFti7cM

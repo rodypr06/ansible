@@ -1,8 +1,0 @@
----
-####Unmoount Katello-satellite SAMNT NFS####
-- name: Unmount katello-satellite Filesystem
-  mount:
-    name: /samnt
-    src: katello-satellite:/samnt
-    fstype: nfs
-    state: unmounted

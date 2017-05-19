@@ -17,6 +17,7 @@
 [test]
 wfrhel
 rheltest
+10.160.0.2
 
 #### NON PRODUCTION SERVERS ####
 [nonprod:children]
