@@ -1,8 +1,9 @@
 ---
 ####Unmoount Katello-satellite SAMNT NFS####
+- hosts: prod
 - name: Unmount katello-satellite Filesystem
   mount:
-    name: /samnt
-    src: katello-satellite:/samnt
+    name: /mqm_files
+    src: katello-satellite:/nfs/mqm_files
     fstype: nfs
     state: unmounted
