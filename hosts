@@ -17,7 +17,6 @@
 [test]
 wfrhel
 rheltest
-10.160.0.2
 
 #### NON PRODUCTION SERVERS ####
 [nonprod:children]
@@ -71,6 +70,11 @@ rtlappdb-new
 [rpe_prod]
 prpeapp
 prpedb
+
+####Oracle Cloud RPE####
+[rpe_cloud]
+drpeapp
+drpedb
 
 #### WAS ###
 [was_prod]
