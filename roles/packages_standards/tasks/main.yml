@@ -3,7 +3,7 @@
 ###Owned by: Server Team, AWG
 ###Maintained by Roderick Rabelo (roderick.rabelo@awginc.com)
 ##
-#
+#  
 ####INSTALLATION OF STANDARD PACKAGES####
 - name: Install Required Packages
   yum:

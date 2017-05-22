@@ -24,6 +24,7 @@
     chdir: /samnt/scripts/FireMotD-5.14.160701
     creates: /usr/local/bin/FireMotD
   register: makeinstall
+  when: ansible_os_family == 'RedHat'
 
 - name: make_bash
   when: makeinstall|changed
@@ -37,7 +38,7 @@
     state: present
     regexp: '^/usr/local/bin/FireMotD'
     line: '/usr/local/bin/FireMotD -t blue ###MOTD Server Infor/Performance in Blue Color'
-
+  when: ansible_os_family == 'RedHat'
 ####Crontab task is in a seperate .yml file,####
 ####so we need to include it to this main.yml file####
 - include: crontab.yml
@@ -65,7 +66,7 @@
     owner: root
     group: root
     mode: 0751
-
+  when: ansible_os_family == 'RedHat'
 #- name: Resolv Configuration
 #  template:
 #    src: resolv.conf.j2
