@@ -14,10 +14,14 @@
 - name: Create /samnt Directory
   file: dest=/samnt state=directory
 
+  ####Create SAMNT Directory####
+- name: Create /mqm_files Directory
+  file: dest=/mqm_files state=directory
+
 ####Mount SAMNT NFS####
-- name: Mount samnt Filesystem
+- name: Mount mqm_files Filesystem
   mount:
-    name: /samnt
-    src: satellite:/samnt
+    name: /mqm_files
+    src: satellite:/nfs/mqm_files
     fstype: nfs
     state: mounted
