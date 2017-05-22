@@ -85,9 +85,9 @@ drpedb
 
 #### WAS ###
 [was_prod]
-wasds01
+#wasds01
 #wasds02
-washttp01
+#washttp01
 #washttp02
 
 #### INFRA ####

@@ -1,6 +1,6 @@
 ---
 ####Add rundeck user####
-- hosts: aislprod
+- hosts: prod
   tasks:
   - name: Add User Rundeck
     user:
