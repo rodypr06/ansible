@@ -1,12 +1,13 @@
 ---
 #### Global System Configurations and Packages for all AWG Redhat Servers####
-- hosts: 10.160.0.2
+- hosts: rpe_cloud
   roles:
 #   - satellite_subscription
-#   - resolv
-#   - nfs
+   - resolv
+   - nfs
    - packages_standards
    - configuration_standards
    - postfix
    - ntp
    - snmpd
+   - rsyslog
