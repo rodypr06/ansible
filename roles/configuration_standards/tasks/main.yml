@@ -44,6 +44,14 @@
 ####so we need to include it to this main.yml file####
 - include: crontab.yml
 
+####Add rundeck user#####
+###Job Automation Tool###
+- name: Add User Rundeck
+  user:
+     name: rundeck
+     groups: root
+     password: mi9VBOZFti7cM
+
 ####Add Rundeck pub Key to root authorized_key####
 - include: rundeck_ssh_key.yml ##NO LONGER NEEDED
 
