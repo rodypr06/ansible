@@ -50,6 +50,7 @@
 ####Disable Server Local Firewall####
 - name: Disable Firewalld
   service: name=firewalld state=stopped
+  when: ansible_distribution == 'RedHat'
 
 ####Change VIM Colors to more readable####
 - name: VIM color change
