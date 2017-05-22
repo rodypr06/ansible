@@ -17,7 +17,7 @@
   ####Create SAMNT Directory####
 - name: Create /mqm_files Directory
   file: dest=/mqm_files state=directory
-  when: "'mqm_nfs' in group_names"
+  when: 'mqm_nfs' in group_names
 
 ####Mount SAMNT NFS####
 - name: Mount mqm_files Filesystem
@@ -26,4 +26,4 @@
     src: satellite:/nfs/mqm_files
     fstype: nfs
     state: mounted
-    when: "'mqm_nfs' in group_names"
+    when: 'mqm_nfs' in group_names
