@@ -89,5 +89,5 @@ graylogtest
 
 [infra_prod]
 graylog
-satellite
+#satellite
 pmtls
