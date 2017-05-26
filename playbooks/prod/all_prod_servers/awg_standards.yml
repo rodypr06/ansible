@@ -1,12 +1,13 @@
 ---
 #### Global System Configurations and Packages for all AWG Redhat Servers####
-- hosts: prod
+- hosts: all
+  gather_facts: False
   roles:
-   - satellite_subscription
-   - resolv     
+#   - satellite_subscription
+#   - resolv     
    - nfs
-   - packages_standards
-   - configuration_standards
-   - postfix
-   - ntp
-   - snmpd
+#   - packages_standards
+#   - configuration_standards
+#   - postfix
+#   - ntp
+#   - snmpd

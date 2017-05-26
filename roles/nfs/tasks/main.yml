@@ -25,5 +25,12 @@
     name: /mqm_files
     src: satellite:/nfs/mqm_files
     fstype: nfs
-    state: mounted
+    state: unmounted
   when: "'mqm_nfs' in group_names"
+
+- name: umount samnt Filesystem
+  mount:
+    name: /samnt
+    fstype: nfs
+    state: unmounted
+
