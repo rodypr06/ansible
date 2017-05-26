@@ -52,11 +52,13 @@ aisbat
 aisfpe
 
 ### For mqm_files NFS ###
-[mqm_nfs:children]
-ais_nonprod
-ais_prod
-batch_nonprod
-batch_prod
+[mqm_nfs]
+aislprod
+aisltest
+aislqa
+batapp
+batappqa
+batapptest
 
 #### BATCH ####
 [batch_nonprod]
