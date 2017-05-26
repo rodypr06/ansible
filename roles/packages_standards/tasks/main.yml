@@ -3,7 +3,7 @@
 ###Owned by: Server Team, AWG
 ###Maintained by Roderick Rabelo (roderick.rabelo@awginc.com)
 ##
-#  
+#
 ####INSTALLATION OF STANDARD PACKAGES####
 - name: Install Required Packages
   yum:
@@ -18,6 +18,11 @@
 - name: Install NTP
   yum:
     name: ntp
+    state: present
+
+- name: Install SELinux troubleshoot
+  yum:
+    name: setroubleshoot-server
     state: present
 
 - name: Install logwatch
