@@ -48,12 +48,14 @@ aisfpeqa
 
 [ais_prod]
 aislprod
+aislprod2
 aisbat
 aisfpe
 
 ### For mqm_files NFS ###
 [mqm_nfs]
 aislprod
+aislprod2
 aisltest
 aislqa
 batapp

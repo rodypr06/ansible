@@ -11,12 +11,12 @@
     minute: "*/15"
     job: "/samnt/scripts/space_monitor.sh > /dev/null 2>&1"
 
-- name: System update count for MOTD
-  cron:
-    name: "MOTD Update Count"
-    minute: "0"
-    hour: "6,11"
-    job: "/usr/local/bin/FireMotD -S > /dev/null 2>&1"     
+#- name: System update count for MOTD
+#  cron:
+#    name: "MOTD Update Count"
+#    minute: "0"
+#    hour: "6,11"
+#    job: "/usr/local/bin/FireMotD -S > /dev/null 2>&1"     
 
 
 
