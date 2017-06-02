@@ -28,8 +28,9 @@
     state: mounted
   when: "'mqm_nfs' in group_names"
 
-#- name: mount samnt Filesystem
-#  mount:
-#    name: /samnt
-#    fstype: nfs
-#    state: mounted
+- name: mount samnt Filesystem
+  mount:
+    name: /samnt
+    src: satellite:/samnt
+    fstype: nfs
+    state: mounted

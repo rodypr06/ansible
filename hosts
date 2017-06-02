@@ -51,6 +51,7 @@ aislprod
 aislprod2
 aisbat
 aisfpe
+aisfpe2
 
 ### For mqm_files NFS ###
 [mqm_nfs]
@@ -81,6 +82,7 @@ rtlappdb-new
 [rpe_prod]
 prpeapp
 prpedb
+oracon
 
 ####Oracle Cloud RPE####
 [rpe_cloud]
@@ -102,3 +104,4 @@ graylogtest
 graylog
 #satellite
 pmtls
+rhelhsm
