@@ -104,12 +104,9 @@ graylogtest
 graylog
 #satellite
 pmtls
-<<<<<<< HEAD
+rhelhsm
 
 ###Servers that sends IIB logs to graylog###
 [iib_logs]
 aislqa
 aisltest
-=======
-rhelhsm
->>>>>>> cb31c0a0a705f7dbcc5bdf426b6a44b089dc1cbe
