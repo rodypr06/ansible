@@ -52,3 +52,14 @@ local7.*                                                /var/log/boot.log
 ##### Sending Logs to Graylog Server for AWG Log Collection#####
 *.*@10.1.200.56:5140;RSYSLOG_SyslogProtocol23Format #This is to the Production Graylog (graylog.awg.local)
 *.*@10.2.200.90:5141;RSYSLOG_SyslogProtocol23Format #This is to the Test Graylog (graylogtest.awg.local)
+
+{% if inventory_hostname in groups['iib_logs'] %}
+###IIB Logs to Graylog###
+$InputFileName /awg/logs/logging.IIBQ1
+$InputFileTag ais_logging
+$InputFileStateFile ais-qa-log
+$InputFileSeverity info
+$InputFileFacility local6
+$InputRunFileMonitor
+local6.* @@graylogtest:5141
+{% endif %}

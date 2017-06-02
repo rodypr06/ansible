@@ -52,7 +52,7 @@ aislprod2
 aisbat
 aisfpe
 
-### For mqm_files NFS ###
+### Servers that needs mqm_files mounted ###
 [mqm_nfs]
 aislprod
 aislprod2
@@ -102,3 +102,8 @@ graylogtest
 graylog
 #satellite
 pmtls
+
+###Servers that sends IIB logs to graylog###
+[iib_logs]
+aislqa
+aisltest
