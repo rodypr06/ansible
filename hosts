@@ -51,6 +51,7 @@ aislprod
 aislprod2
 aisbat
 aisfpe
+aisfpe2
 
 ### Servers that needs mqm_files mounted ###
 [mqm_nfs]
@@ -81,6 +82,7 @@ rtlappdb-new
 [rpe_prod]
 prpeapp
 prpedb
+oracon
 
 ####Oracle Cloud RPE####
 [rpe_cloud]
@@ -102,8 +104,12 @@ graylogtest
 graylog
 #satellite
 pmtls
+<<<<<<< HEAD
 
 ###Servers that sends IIB logs to graylog###
 [iib_logs]
 aislqa
 aisltest
+=======
+rhelhsm
+>>>>>>> cb31c0a0a705f7dbcc5bdf426b6a44b089dc1cbe
