@@ -59,6 +59,7 @@ local7.*                                                /var/log/boot.log
 
 {% if inventory_hostname in groups['iib_logs'] %}
 ###IIB Logs to Graylog###
+$ModLoad imfile
 $InputFileName /awg/logs/logging.IIBQ1
 $InputFileTag ais_logging
 $InputFileStateFile ais-qa-log
