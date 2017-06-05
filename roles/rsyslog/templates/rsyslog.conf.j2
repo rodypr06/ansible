@@ -55,6 +55,7 @@ local7.*                                                /var/log/boot.log
 {% endif %}
 {% if inventory_hostname in groups['nonprod'] %}
 *.*@10.2.200.90:5141;RSYSLOG_SyslogProtocol23Format #This is to the Test Graylog (graylogtest.awg.local)
+*.*@10.1.200.56:5140;RSYSLOG_SyslogProtocol23Format #This is to the Production Graylog (graylog.awg.local)
 {% endif %}
 
 {% if inventory_hostname in groups['iib_logs'] %}
