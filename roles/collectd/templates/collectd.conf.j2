@@ -90,7 +90,36 @@ LoadPlugin match_regex
  <Carbon>
    Host "pmtls"
    Port "2003"
-   Prefix "collectd."
+   {% if inventory_hostname in groups['infra_nonprod'] %}
+	 prefix = "{{ infra_nonprod }}"
+   {% endif %}
+   {% if inventory_hostname in groups['test'] %}
+	 prefix = "{{ test }}"
+   {% endif %}
+   {% if inventory_hostname in groups['ais_nonprod'] %}
+	 prefix = "{{ ais_nonprod }}"
+   {% endif %}
+   {% if inventory_hostname in groups['ais_prod'] %}
+	 prefix = "{{ ais_prod }}"
+   {% endif %}
+   {% if inventory_hostname in groups['batch_nonprod'] %}
+	 prefix = "{{ batch_nonprod }}"
+   {% endif %}
+   {% if inventory_hostname in groups['batch_prod'] %}
+	 prefix = "{{ batch_prod }}"
+   {% endif %}
+   {% if inventory_hostname in groups['rpe_nonprod'] %}
+	 prefix = "{{ rpe_nonprod }}"
+   {% endif %}
+   {% if inventory_hostname in groups['rpe_prod'] %}
+	 prefix = "{{ rpe_prod }}"
+   {% endif %}
+   {% if inventory_hostname in groups['was_prod'] %}
+	 prefix = "{{ was_prod }}"
+   {% endif %}
+   {% if inventory_hostname in groups['infra_prod'] %}
+	 prefix = "{{ infra_prod }}"
+   {% endif %}
    EscapeCharacter "_"
    SeparateInstances true
    StoreRates true
