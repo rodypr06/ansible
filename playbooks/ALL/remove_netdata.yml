@@ -4,13 +4,13 @@
   tasks:
    - name: Uninstall Netdata
      expect:
-     command: /usr/src/netdata/netdata-uninstaller.sh --force
-     responses:
-       Question:
-         - y
-         - y
-         - y
-         - y
-         - y
-         - y
-         - y
+        command: /usr/src/netdata/netdata-uninstaller.sh --force
+        responses:
+          Question:
+            - y
+            - y
+            - y
+            - y
+            - y
+            - y
+            - y
