@@ -1,6 +1,6 @@
 ###Uninstall Netdata###
 ---
-- hosts: nonprod
+- hosts: all
   tasks:
    - name: Uninstall Netdata
      expect:
