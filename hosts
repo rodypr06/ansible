@@ -64,6 +64,11 @@ batapp
 batappqa
 batapptest
 
+###Servers that sends IIB logs to graylog###
+[iib_logs]
+aislqa
+aisltest
+
 #### BATCH ####
 [batch_nonprod]
 batapptest
@@ -106,8 +111,3 @@ graylog
 #satellite
 pmtls
 rhelhsm
-
-###Servers that sends IIB logs to graylog###
-[iib_logs]
-aislqa
-aisltest
