@@ -17,6 +17,7 @@
 [test]
 wfrhel
 rheltest
+michellerhel
 
 #### NON PRODUCTION SERVERS ####
 [nonprod:children]

@@ -1,5 +1,5 @@
 ---
 ####Installs collectd###
-- hosts: all
+- hosts: nonprod
   roles:
    - collectd
