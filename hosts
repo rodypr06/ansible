@@ -105,6 +105,7 @@ drpedb
 #### INFRA ####
 [infra_nonprod]
 graylogtest
+satellite-test
 
 [infra_prod]
 graylog

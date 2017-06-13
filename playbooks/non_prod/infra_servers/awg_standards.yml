@@ -9,4 +9,5 @@
    - configuration_standards
    - postfix
    - ntp
+   - rsyslog
    - snmpd
