@@ -26,7 +26,7 @@
     src: satellite:/nfs/mqm_files
     fstype: nfs
     opts: defaults,soft,timeo=14
-    state: mounted
+    state: unmounted
   when: "'mqm_nfs' in group_names"
 
 - name: mount samnt Filesystem
@@ -35,4 +35,4 @@
     src: satellite:/samnt
     fstype: nfs
     opts: defaults,soft,timeo=14
-    state: mounted
+    state: unmounted
