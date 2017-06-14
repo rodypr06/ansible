@@ -68,6 +68,7 @@ batapptest
 [iib_logs]
 aislqa
 aisltest
+aislprod
 
 #### BATCH ####
 [batch_nonprod]
