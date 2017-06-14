@@ -66,10 +66,13 @@ batappqa
 batapptest
 
 ###Servers that sends IIB logs to graylog###
-[iib_logs]
+[iib_logs_q1]
 aislqa
+[iib_logs_t1]
 aisltest
+[iib_logs_p1]
 aislprod
+[iib_logs_p2]
 aislprod2
 
 #### BATCH ####
