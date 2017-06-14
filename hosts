@@ -18,6 +18,7 @@
 wfrhel
 rheltest
 michellerhel
+satellite-test
 
 #### NON PRODUCTION SERVERS ####
 [nonprod:children]
