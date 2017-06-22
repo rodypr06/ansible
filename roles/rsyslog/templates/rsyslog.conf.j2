@@ -58,7 +58,7 @@ local7.*                                                /var/log/boot.log
 *.*@10.1.200.56:5140;RSYSLOG_SyslogProtocol23Format #This is to the Production Graylog (graylog.awg.local)
 {% endif %}
 
-{% if inventory_hostname in groups['iib_logs'] %}
+{% if inventory_hostname in groups['iib_logs_q1'] %}
 ###IIB Logs to Graylog###
 $ModLoad imfile
 $InputFileName /awg/logs/logging.IIBQ1
@@ -68,3 +68,33 @@ $InputFileSeverity info
 $InputFileFacility local6
 $InputRunFileMonitor
 {% endif %}
+{% if inventory_hostname in groups['iib_logs_t1'] %}
+###IIB Logs to Graylog###
+$ModLoad imfile
+$InputFileName /awg/logs/logging.IIBT1
+$InputFileTag ais_logging
+$InputFileStateFile ais-t1-log
+$InputFileSeverity info
+$InputFileFacility local6
+$InputRunFileMonitor
+{% endif %
+{% if inventory_hostname in groups['iib_logs_p1'] %}
+###IIB Logs to Graylog###
+$ModLoad imfile
+$InputFileName /awg/logs/logging.IIBP1
+$InputFileTag ais_logging
+$InputFileStateFile ais-p1-log
+$InputFileSeverity info
+$InputFileFacility local6
+$InputRunFileMonitor
+{% endif %
+{% if inventory_hostname in groups['iib_logs_p2'] %}
+###IIB Logs to Graylog###
+$ModLoad imfile
+$InputFileName /awg/logs/logging.IIBP2
+$InputFileTag ais_logging
+$InputFileStateFile ais-p2-log
+$InputFileSeverity info
+$InputFileFacility local6
+$InputRunFileMonitor
+{% endif %
