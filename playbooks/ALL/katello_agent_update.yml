@@ -1,0 +1,7 @@
+---
+####Update katello-agent and pulp
+- hosts: all
+  tasks:
+  - name: Update katello-agent and pulp
+    command: yum update *pulp* katello-agent
+      
