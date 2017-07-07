@@ -25,6 +25,7 @@ ais_nonprod
 batch_nonprod
 rpe_nonprod
 infra_nonprod
+cm_nonprod
 
 #### PRODUCTION SERVERS ####
 [prod:children]
@@ -106,6 +107,11 @@ drpedb
 #wasds02
 #washttp01
 #washttp02
+
+#### Content Mgr ###
+[cm_nonprod]
+dcmod
+
 
 #### INFRA ####
 [infra_nonprod]

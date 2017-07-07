@@ -10,3 +10,4 @@
    - postfix
    - ntp
    - snmpd
+   - rsyslog

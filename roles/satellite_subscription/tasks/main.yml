@@ -19,7 +19,7 @@
     org_id: AWG
 
 ####Enable repositories####
-- include: repositories.yml
+#- include: repositories.yml
 
 ####Adds Foreman-proxy public key to Authorized Keys####
 - name: Add Foreman-proxy key to authorized_keys
