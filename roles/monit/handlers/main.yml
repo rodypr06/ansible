@@ -1,0 +1,3 @@
+---
+- name: start monit
+  service: name=monit state=started enabled=yes

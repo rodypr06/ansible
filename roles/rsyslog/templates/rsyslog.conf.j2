@@ -77,7 +77,7 @@ $InputFileStateFile ais-t1-log
 $InputFileSeverity info
 $InputFileFacility local6
 $InputRunFileMonitor
-{% endif %
+{% endif %}
 {% if inventory_hostname in groups['iib_logs_p1'] %}
 ###IIB Logs to Graylog###
 $ModLoad imfile
@@ -87,7 +87,7 @@ $InputFileStateFile ais-p1-log
 $InputFileSeverity info
 $InputFileFacility local6
 $InputRunFileMonitor
-{% endif %
+{% endif %}
 {% if inventory_hostname in groups['iib_logs_p2'] %}
 ###IIB Logs to Graylog###
 $ModLoad imfile
@@ -97,4 +97,4 @@ $InputFileStateFile ais-p2-log
 $InputFileSeverity info
 $InputFileFacility local6
 $InputRunFileMonitor
-{% endif %
+{% endif %}
