@@ -92,7 +92,7 @@ power_nonprod
 [ais_nonprod]
 aisltest
 aislqa
-aisfpetest
+#aisfpetest
 aisfpeqa
 
 [ais_prod]
