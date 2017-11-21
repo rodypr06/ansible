@@ -50,14 +50,17 @@ uucp,news.crit                                          /var/log/spooler
 local7.*                                                /var/log/boot.log
 
 ##### Sending Logs to Graylog Server for AWG Log Collection#####
-{% if inventory_hostname in groups['prod'] %}
-*.*@10.1.200.56:5140;RSYSLOG_SyslogProtocol23Format #This is to the Production Graylog (graylog.awg.local)
+{% if inventory_hostname in groups['prodlogs'] %}
+*.*@10.1.200.56:5241;RSYSLOG_SyslogProtocol23Format #This is to the Production Graylog (graylog.awg.local)
 {% endif %}
-{% if inventory_hostname in groups['nonprod'] %}
-*.*@10.2.200.90:5141;RSYSLOG_SyslogProtocol23Format #This is to the Test Graylog (graylogtest.awg.local)
-*.*@10.1.200.56:5140;RSYSLOG_SyslogProtocol23Format #This is to the Production Graylog (graylog.awg.local)
+{% if inventory_hostname in groups['nonprodlogs'] %}
+*.*@10.2.200.90:5242;RSYSLOG_SyslogProtocol23Format #This is to the Test Graylog (graylogtest.awg.local)
+*.*@10.1.200.56:5241;RSYSLOG_SyslogProtocol23Format #This is to the Production Graylog (graylog.awg.local)
 {% endif %}
-
+{% if inventory_hostname in groups['iib_logs'] %}
+*.*@10.2.200.90:5141;RSYSLOG_SyslogProtocol23Format # Graylog Test Server
+*.*@10.1.200.56:5140;RSYSLOG_SyslogProtocol23Format # Graylog Prod Server
+{% endif %}
 {% if inventory_hostname in groups['iib_logs_q1'] %}
 ###IIB Logs to Graylog###
 $ModLoad imfile
@@ -97,4 +100,56 @@ $InputFileStateFile ais-p2-log
 $InputFileSeverity info
 $InputFileFacility local6
 $InputRunFileMonitor
+{% endif %}
+{% if inventory_hostname == "qarpeapp" %}
+###MQM Logs to Graylog###
+module(load="imfile" PollingInterval="10") #needs to be done just once
+input(type="imfile"
+      File="/opt/Middleware/logs/*"
+      Tag="rpe_logging"
+      Severity="info"
+      Facility="local7")
+{% endif %}
+{% if inventory_hostname in groups['fpe_logs_p1'] %}
+###FPE Logs to Graylog###
+*.*@10.1.200.56:5241;RSYSLOG_SyslogProtocol23Format #This is to the Production Graylog (graylog.awg.local)
+
+module(load="imfile" PollingInterval="10") #needs to be done just once
+input(type="imfile"
+      File="/awg/p1/logs/*"
+      Tag="fpe_logging"
+      Severity="info"
+      Facility="local7")
+{% endif %}
+{% if inventory_hostname == "aisfpeqa" %}
+*.*@10.2.200.90:5242;RSYSLOG_SyslogProtocol23Format #This is to the Test Graylog (graylogtest.awg.local)
+###FPE Logs to Graylog###
+module(load="imfile" PollingInterval="10") #needs to be done just once
+input(type="imfile"
+      File="/awg/q1/logs/*"
+      Tag="fpe_logging"
+      Severity="info"
+      Facility="local7")
+
+input(type="imfile"
+      File="/awg/q2/logs/*"
+      Tag="fpe_logging"
+      Severity="info"
+      Facility="local7")
+{% endif %}
+{% if inventory_hostname == "aisfpetest" %}
+*.*@10.2.200.90:5242;RSYSLOG_SyslogProtocol23Format #This is to the Test Graylog (graylogtest.awg.local)
+###FPE Logs to Graylog###
+module(load="imfile" PollingInterval="10") #needs to be done just once
+input(type="imfile"
+      File="/awg/t1/logs/*"
+      Tag="fpe_logging"
+      Severity="info"
+      Facility="local7")
+
+input(type="imfile"
+      File="/awg/t2/logs/*"
+      Tag="fpe_logging"
+      Severity="info"
+      Facility="local7")
 {% endif %}

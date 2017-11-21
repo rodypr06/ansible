@@ -15,9 +15,8 @@
 
 #### TEST SERVERS #### FOR ANSIBLE CODE TESTING
 [test]
-wfrhel
+#wfrhel
 rheltest
-michellerhel
 
 #### NON PRODUCTION SERVERS ####
 [nonprod:children]
@@ -26,6 +25,8 @@ batch_nonprod
 rpe_nonprod
 infra_nonprod
 cm_nonprod
+cawa_nonprod
+power_nonprod
 
 #### PRODUCTION SERVERS ####
 [prod:children]
@@ -34,6 +35,54 @@ batch_prod
 rpe_prod
 infra_prod
 was_prod
+cawa_prod
+power_prod
+
+########################################
+######## Send Logs to Graylog ##########
+########################################
+
+#### IIB Logs ####
+[iib_logs:children]
+iib_logs_q1
+iib_logs_t1
+iib_logs_p1
+iib_logs_p2
+
+[iib_logs_q1]
+aislqa
+[iib_logs_t1]
+aisltest
+[iib_logs_p1]
+aislprod
+[iib_logs_p2]
+aislprod2
+
+#### FPE Logs ####
+[fpe_logs_p1]
+aisfpe
+aisfpe2
+
+#### Prod System Logs ####
+[prodlogs:children]
+batch_prod
+rpe_prod
+infra_prod
+was_prod
+ais_batch_prod
+cawa_prod
+power_prod
+
+#### NonProd System Logs ####
+[nonprodlogs:children]
+batch_nonprod
+rpe_nonprod
+infra_nonprod
+cm_nonprod
+ais_batch_nonprod
+cawa_nonprod
+power_nonprod
+
 
 ########################################
 #### Servers Grouped by Application ####
@@ -43,17 +92,21 @@ was_prod
 [ais_nonprod]
 aisltest
 aislqa
-aisbattest
-aisbatqa
 aisfpetest
 aisfpeqa
 
 [ais_prod]
 aislprod
 aislprod2
-aisbat
 aisfpe
 aisfpe2
+
+[ais_batch_nonprod]
+aisbattest
+aisbatqa
+
+[ais_batch_prod]
+aisbat
 
 ### Servers that needs mqm_files mounted ###
 [mqm_nfs]
@@ -65,16 +118,6 @@ batapp
 batappqa
 batapptest
 
-###Servers that sends IIB logs to graylog###
-[iib_logs_q1]
-aislqa
-[iib_logs_t1]
-aisltest
-[iib_logs_p1]
-aislprod
-[iib_logs_p2]
-aislprod2
-
 #### BATCH ####
 [batch_nonprod]
 batapptest
@@ -83,23 +126,19 @@ batappqa
 [batch_prod]
 batapp
 apparch
+aisbat
 
 #### RPE ####
 [rpe_nonprod]
 qarpeapp
 qarpedb
-rtlapp
-rtlappdb-new
+#rtlapp
+#rtlappdb-new
 
 [rpe_prod]
 prpeapp
 prpedb
 oracon
-
-####Oracle Cloud RPE####
-[rpe_cloud]
-drpeapp
-drpedb
 
 #### WAS ###
 [was_prod]
@@ -112,13 +151,32 @@ drpedb
 [cm_nonprod]
 dcmod
 
+#### CAWA ####
+[cawa_nonprod]
+dcawaws
+qcawaws
+
+[cawa_prod]
+pcawaws
+
+#### DataPower ####
+[power_nonprod]
+dpowerapp
+qdpapp
+
+[power_prod]
+pdpapp
 
 #### INFRA ####
 [infra_nonprod]
 graylogtest
+#tsmtest
+dawxapp
 
 [infra_prod]
 graylog
-#satellite
+satellite
 pmtls
 rhelhsm
+tsmlinux
+

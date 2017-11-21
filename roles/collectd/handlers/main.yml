@@ -1,3 +1,0 @@
-####Restart Service####
-- name: restart_collectd
-  service: name=collectd state=restarted enabled=yes

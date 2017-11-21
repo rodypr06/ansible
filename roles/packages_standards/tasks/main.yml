@@ -5,40 +5,21 @@
 ##
 #
 ####INSTALLATION OF STANDARD PACKAGES####
-- name: Install Required Packages
-  yum:
-    name: nfs-utils
-    state: present
-
-- name: Install VIM
-  yum:
-    name: vim
-    state: present
-
-- name: Install NTP
-  yum:
-    name: ntp
-    state: present
-
-- name: Install SELinux troubleshoot
-  yum:
-    name: setroubleshoot-server
-    state: present
-
-- name: Install logwatch
-  yum:
-    name: logwatch
-    state: present
-
-- name: Install tzdata
-  yum:
-    name: tzdata
-    state: present
-
-- name: Install cifs-utils
-  yum:
-    name: cifs-utils
-    state: present
+- name: Install Standard packages
+  yum: state=present name={{ item }}
+  with_items:
+    - nfs-utils
+    - setroubleshoot-server
+    - vim
+    - ntp
+    - logwatch
+    - tzdata
+    - cifs-utils
+    - katello-agent
+    - htop
+    - nmon
+    - cockpit
+#    - nmap
 
 # - name: Install Katello Agent
 #   yum:
@@ -58,9 +39,3 @@
 
 #- name: Start and Enable Cockpit
 #  service: name=cockpit.socket state=started enabled=yes
-
-####NMON INSTALLATION####
-- name: Install Nmon
-  yum:
-    name: nmon
-    state: present

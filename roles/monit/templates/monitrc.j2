@@ -19,8 +19,8 @@ set log syslog
 ## Enable Monit to send stats to MMonit and Allow web access ##
 
 set mmonit http://monit:monit@pmtls:8080/collector
-set httpd port 2812 and
-   use address {{ ansible_hostname }}  # only accept connection from localhost
+set httpd port 2812
+#   use address {{ ansible_hostname }}  # only accept connection from localhost
     allow 0.0.0.0/0.0.0.0        # allow localhost to connect to the server and
     allow admin:monit      # require user 'admin' with password 'monit'
 
@@ -53,6 +53,13 @@ set httpd port 2812 and
       if status != 0 then alert
 
 {% if inventory_hostname == "satellite" %}
+
+   check process virt-who
+    matching "virt-who"
+    start program = "/usr/bin/systemctl start virt-who"
+    stop program = "/usr/bin/systemctl stop virt-who"
+    if 5 restarts within 5 cycles then timeout
+
    check process rundeckd with pidfile /var/run/rundeckd.pid
       start program = "/usr/bin/systemctl start rundeckd"
       stop program = "/usr/bin/systemctl stop rundeckd"
@@ -83,7 +90,34 @@ set httpd port 2812 and
       stop program = "/usr/bin/systemctl stop mongod"
       if 5 restarts within 5 cycles then timeout
 
-    check process pulp with pidfile /var/run/pulp/celerybeat.pid
+    check process qpidd
+     matching "qpidd"
+     start program = "/usr/bin/systemctl start qpidd"
+     stop program = "/usr/bin/systemctl stop qpidd"
+     if 5 restarts within 5 cycles then timeout
+
+    check process qdrouterd
+      matching "qdrouterd"
+      start program = "/usr/bin/systemctl start qdrouterd"
+      stop program = "/usr/bin/systemctl start qdrouterd"
+      if 5 restarts within 5 cycles then timeout
+
+    check process tomcat
+      matching "tomcat"
+      start program = "/usr/bin/systemctl start tomcat"
+      stop program = "/usr/bin/systemctl stop tomcat"
+      if 5 restarts within 5 cycles then timeout
+
+    check process pulp
+      matching "pulp"
+
+    check process puppet
+      matching "puppet"
+      start program = "/usr/bin/systemctl start puppet"
+      stop program = "/usr/bin/systemctl stop puppet"
+      if 5 restarts within 5 cycles then timeout
+
+
 {% endif %}
 
 #FILESYSTEM Monitoring

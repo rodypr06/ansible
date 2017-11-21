@@ -1,5 +1,5 @@
 ---
 ####Installs collectd###
-- hosts: nonprod
+- hosts: all
   roles:
    - monit
