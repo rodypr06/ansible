@@ -1,6 +1,6 @@
 ---
 #### Global System Configurations and Packages for all AWG Redhat Servers####
-- hosts: all
+- hosts: rheltest
   roles:
    - satellite_subscription
    - resolv
