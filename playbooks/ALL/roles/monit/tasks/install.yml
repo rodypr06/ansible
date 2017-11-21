@@ -1,0 +1,27 @@
+##Install and Configure Monit
+- name: Get Monit
+  unarchive:
+    src: http://satellite.awg.local/pulp/isos/60f905b3-8c7f-4226-ad82-352dca16dc82/monit-5.23.0-linux-x64.tar.gz
+    dest: /opt
+    remote_src: True
+
+- name: Install Monit in local/bin
+  file:
+    src: /opt/monit-5.23.0/bin/monit
+    dest: /usr/local/bin/monit
+    state: link
+
+- name: Install Monit in local/bin
+  file:
+    src: /opt/monit-5.23.0/man/man1/monit.1
+    dest: /usr/local/share/man/man1/monit.1
+    state: link
+
+- name: Manage monit with systemctl
+  copy:
+    src: monit.service.txt
+    dest: /lib/systemd/system/monit.service
+    owner: root
+    group: root
+  notify:
+    - start monit

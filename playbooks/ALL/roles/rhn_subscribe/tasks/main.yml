@@ -1,0 +1,14 @@
+---
+- name: Add the OS specific varibles
+  include_vars: variables.yml
+
+- name: Remove Satellite subscription-manager
+  command: subscription-manager
+
+- name: remove Satellite CA Certificate
+  yum:
+    name: katello-ca-consumer-satellite.awg.local
+    state: removed
+
+- name: register the server
+  command: subscription-manager register --username "{{ username }}" --password "{{ password }}" --auto-attach --force

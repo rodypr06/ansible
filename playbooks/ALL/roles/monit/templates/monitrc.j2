@@ -1,0 +1,140 @@
+###############################################################################
+## Monit control file
+###############################################################################
+###############################################################################
+## Global section
+###############################################################################
+##
+## Start Monit in the background (run as a daemon):
+#
+set daemon  30              # check services at 30 seconds intervals
+#   with start delay 240    # optional: delay the first check by 4-minutes (by
+#                           # default Monit check immediately after Monit start)
+
+## Set syslog logging. If you want to log to a standalone log file instead,
+## specify the full path to the log file
+
+set log syslog
+
+## Enable Monit to send stats to MMonit and Allow web access ##
+
+set mmonit http://monit:monit@pmtls:8080/collector
+set httpd port 2812
+#   use address {{ ansible_hostname }}  # only accept connection from localhost
+    allow 0.0.0.0/0.0.0.0        # allow localhost to connect to the server and
+    allow admin:monit      # require user 'admin' with password 'monit'
+
+##########################################################################
+###################### AWG Configurations ###############################
+##########################################################################
+
+## SYSTEM Monitoring
+  check system $HOST
+    if loadavg (1min) > 7 then alert
+    if loadavg (5min) > 5 then alert
+    if cpu usage > 95% for 10 cycles then alert
+    if memory usage > 99% then alert
+    if swap usage > 25% then alert
+    if cpu usage > 200% for 4 cycles then alert
+## PROCESSES Monitoring
+   check process sssd with pidfile /var/run/sssd.pid
+     start program = "/usr/bin/systemctl start sssd"
+     stop program = "/usr/bin/systemctl stop sssd"
+     if children < 3 then restart
+     if 5 restarts within 5 cycles then timeout
+
+    check process rsyslogd
+      matching "rsyslogd"
+      start program = "/usr/bin/systemctl start rsyslog"
+      stop program = "/usr/bin/systemctl stop rsyslog"
+      if 5 restarts within 5 cycles then timeout
+
+    check program top10 with path "/usr/bin/top -n1 -b"
+      if status != 0 then alert
+
+{% if inventory_hostname == "satellite" %}
+
+   check process virt-who
+    matching "virt-who"
+    start program = "/usr/bin/systemctl start virt-who"
+    stop program = "/usr/bin/systemctl stop virt-who"
+    if 5 restarts within 5 cycles then timeout
+
+   check process rundeckd with pidfile /var/run/rundeckd.pid
+      start program = "/usr/bin/systemctl start rundeckd"
+      stop program = "/usr/bin/systemctl stop rundeckd"
+      if 5 restarts within 5 cycles then timeout
+
+    check process foreman-proxy with pidfile /var/run/foreman-proxy/foreman-proxy.pid
+      start program = "/usr/bin/systemctl start foreman-proxy"
+      stop program = "/usr/bin/systemctl stop foreman-proxy"
+      if 5 restarts within 5 cycles then timeout
+
+    check process smart_proxy_dynflow_core with pidfile /var/run/foreman-proxy/smart_proxy_dynflow_core.pid
+      start program = "/usr/bin/systemctl start smart_proxy_dynflow_core"
+      stop program = "/usr/bin/systemctl stop smart_proxy_dynflow_core"
+      if 5 restarts within 5 cycles then timeout
+
+    check process goferd with pidfile /var/run/goferd.pid
+      start program = "/usr/bin/systemctl start goferd"
+      stop program = "/usr/bin/systemctl stop goferd"
+      if 5 restarts within 5 cycles then timeout
+
+    check process httpd with pidfile /var/run/httpd/httpd.pid
+      start program = "/usr/bin/systemctl start httpd"
+      stop program = "/usr/bin/systemctl stop httpd"
+      if 5 restarts within 5 cycles then timeout
+
+    check process mongod with pidfile /var/run/mongodb/mongod.pid
+      start program = "/usr/bin/systemctl start mongod"
+      stop program = "/usr/bin/systemctl stop mongod"
+      if 5 restarts within 5 cycles then timeout
+
+    check process qpidd
+     matching "qpidd"
+     start program = "/usr/bin/systemctl start qpidd"
+     stop program = "/usr/bin/systemctl stop qpidd"
+     if 5 restarts within 5 cycles then timeout
+
+    check process qdrouterd
+      matching "qdrouterd"
+      start program = "/usr/bin/systemctl start qdrouterd"
+      stop program = "/usr/bin/systemctl start qdrouterd"
+      if 5 restarts within 5 cycles then timeout
+
+    check process tomcat
+      matching "tomcat"
+      start program = "/usr/bin/systemctl start tomcat"
+      stop program = "/usr/bin/systemctl stop tomcat"
+      if 5 restarts within 5 cycles then timeout
+
+    check process pulp
+      matching "pulp"
+
+    check process puppet
+      matching "puppet"
+      start program = "/usr/bin/systemctl start puppet"
+      stop program = "/usr/bin/systemctl stop puppet"
+      if 5 restarts within 5 cycles then timeout
+
+
+{% endif %}
+
+#FILESYSTEM Monitoring
+  check filesystem "root" with path /dev/mapper/rootvg-root
+    if space usage > 90% for 5 cycles then alert
+
+  check filesystem "var" with path /dev/mapper/rootvg-var
+    if space usage > 90% for 5 cycles then alert
+
+  check filesystem "opt" with path /dev/mapper/rootvg-opt
+    if space usage > 95% for 5 cycles then alert
+
+{% if inventory_hostname == "satellite" %}
+  check filesystem "mqm_files" with path /dev/mapper/rootvg-nfs
+    if space usage > 95% for 5 cycles then alert
+{% endif %}
+
+##########################################################################
+##############################  END  #####################################
+##########################################################################

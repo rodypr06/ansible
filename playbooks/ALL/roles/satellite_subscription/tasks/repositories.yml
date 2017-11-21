@@ -1,0 +1,9 @@
+---
+####Enable Repositories####
+- name: Configure repository subscriptions
+  redhat_repos:
+    repos:
+      - AWG_Server_Team_RPMS_rpm_awg
+      - rhel-7-server-satellite-tools-6.2-rpms
+      - rhel-7-server-extras-rpms
+    state: present

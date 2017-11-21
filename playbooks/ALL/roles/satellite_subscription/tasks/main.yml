@@ -1,0 +1,31 @@
+---
+###Role:Satellite Subscription
+###Owned by: Server Team, AWG
+###Maintained by Roderick Rabelo (roderick.rabelo@awginc.com)
+##
+#
+####Install Satellite CA Certificate####
+- name: Install Satellite CA Certificate
+  yum:
+    name: http://satellite.awg.local/pub/katello-ca-consumer-latest.noarch.rpm
+    state: present
+
+####Subscribe to Satellite for Content####
+- name: Subscribe to Satellite for Content
+  redhat_subscription:
+    state: present
+    server_hostname: satellite.awg.local
+    activationkey: AWG
+    org_id: AWG
+
+####Enable repositories####
+#- include: repositories.yml
+
+####Adds Foreman-proxy public key to Authorized Keys####
+- name: Add Foreman-proxy key to authorized_keys
+  authorized_key:
+    user: root
+    state: present
+    key: '{{ item }}'
+  with_file:
+    - foreman_pub_key
