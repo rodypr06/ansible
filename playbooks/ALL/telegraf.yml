@@ -1,0 +1,5 @@
+---
+### Install telegraf perfomance collector ###
+- hosts: all
+  roles:
+    - telegraf

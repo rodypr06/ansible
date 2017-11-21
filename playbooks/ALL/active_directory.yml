@@ -1,0 +1,5 @@
+---
+#### Joins Server to AWG Domain###
+- hosts: all
+  roles:
+   - active_directory

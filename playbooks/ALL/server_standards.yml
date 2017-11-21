@@ -1,0 +1,16 @@
+---
+#### Global System Configurations and Packages for all AWG Redhat Servers####
+- hosts: all
+  roles:
+   - satellite_subscription
+   - resolv
+   - nfs
+   - packages_standards
+   - configuration_standards
+   - postfix
+   - ntp
+   - snmpd
+   - rsyslog
+  # - monit
+   - telegraf
+#   - active_directory

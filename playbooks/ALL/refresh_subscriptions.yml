@@ -1,0 +1,11 @@
+### This Playbook refreshes the subscriptions on every server###
+###Useful for when changes on the Redhat Subscription Manifest##
+###are done, for example, switching licenses from hosts#########
+---
+- hosts: all
+  tasks:
+   - name: Clean Yum cache
+     command: yum clean all
+
+   - name: Refresh Subscriptions
+     command: subscription-manager refresh

@@ -1,0 +1,57 @@
+---
+## Install Required packages
+- name: Install AD required packages
+  yum: state=present name={{ item }}
+  with_items:
+#    - PackageKit
+    - oddjob
+    - oddjob-mkhomedir
+    - adcli
+    - sssd
+    - realmd
+
+## Start PackageKit
+#- name: Start PackageKit
+#  service: name=packageKit state=restarted enabled=yes
+
+  ## Create realmd file
+- name: Create Realmd Config file
+  blockinfile:
+    path: /etc/realmd.conf
+    block: |
+      [users]
+      default-home = /home/%d/%u
+    create: yes
+
+## Run script to join a server to Active Directory
+- name: Join Server to AWG Domain
+  script: /samnt/scripts/rhel_ad_config.sh start
+
+## Disable FQDN for User Authentication
+- name: Disable sssd need for FQDN
+  lineinfile:
+    path: /etc/sssd/sssd.conf
+    regexp: '^use_fully_qualified_names ='
+    line: 'use_fully_qualified_names = False'
+
+## Add ssh access to allowed groups
+- name: Add allowed ssh groups
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^AllowGroups'
+    line: 'AllowGroups rheladmin root'
+  register: sshd
+
+## Restart SSHD for changes to take effect
+- name: Restart sshd
+  service: name=sshd state=restarted enabled=yes
+  when: sshd|changed
+
+## Add sudoers
+- name: Add sudoers
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    regexp: '^%rheladmin'
+    line: '%rheladmin	ALL=(ALL)	ALL'
+    validate: 'visudo -cf %s'
