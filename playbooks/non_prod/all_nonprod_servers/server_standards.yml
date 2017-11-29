@@ -1,10 +1,10 @@
 ---
 #### Global System Configurations and Packages for all AWG Redhat Servers####
-- hosts: rheltest
+- hosts: nonprod
   roles:
    #- satellite_subscription
    - resolv
-   - nfs
+   #- nfs
    - packages_standards
    - configuration_standards
    - postfix
@@ -13,4 +13,4 @@
    - rsyslog
    #- monit
    - telegraf
-   #- active_directory
+   - active_directory

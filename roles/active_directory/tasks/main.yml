@@ -18,7 +18,7 @@
 - name: Create Realmd Config file
   blockinfile:
     path: /etc/realmd.conf
-    block: |
+    block:
       [users]
       default-home = /home/%d/%u
     create: yes
@@ -35,12 +35,12 @@
     line: 'use_fully_qualified_names = False'
 
 ## Add ssh access to allowed groups
-- name: Add allowed ssh groups
-  lineinfile:
-    path: /etc/ssh/sshd_config
-    regexp: '^AllowGroups'
-    line: 'AllowGroups rheladmin root'
-  register: sshd
+# - name: Add allowed ssh groups
+#   lineinfile:
+#     path: /etc/ssh/sshd_config
+#     regexp: '^AllowGroups'
+#     line: 'AllowGroups rheladmin root'
+#   register: sshd
 
 ## Restart SSHD for changes to take effect
 - name: Restart sshd

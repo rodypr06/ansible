@@ -78,11 +78,11 @@
     mode: 0751
   when: ansible_distribution == 'RedHat'
 
-####Logwatch Configuration####
-- name: Logwatch Configurations
-  template:
-    src: logwatch.conf.j2
-    dest: /usr/share/logwatch/default.conf/logwatch.conf
-    owner: root
-    group: root
-    mode: 0644
+####Logwatch Configuration#### No longer needed, we have graylog now.
+# - name: Logwatch Configurations
+#   template:
+#     src: logwatch.conf.j2
+#     dest: /usr/share/logwatch/default.conf/logwatch.conf
+#     owner: root
+#     group: root
+#     mode: 0644
