@@ -1,5 +1,0 @@
----
-####Installs collectd###
-- hosts: all
-  roles:
-   - monit

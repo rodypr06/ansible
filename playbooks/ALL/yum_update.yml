@@ -1,10 +1,10 @@
-- name: Update all Packages
-  yum:
-    name: '*'
-    state: latest
-  register: updates
+- hosts: qa
+  - name: Update all Packages
+    yum:
+      name: '*'
+      state: latest
+      register: updates
 
-- name: Reboot Servers
-  command: reboot
-  when: updates|succeeded
-  
+  - name: Reboot Servers
+    command: reboot
+    when: updates|succeeded

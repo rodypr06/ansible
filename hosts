@@ -13,20 +13,34 @@
 #### AWG REDHAT SERVER GROUPS ####
 ##################################
 
-#### TEST SERVERS #### FOR ANSIBLE CODE TESTING
-[test]
-#wfrhel
-rheltest
-
 #### NON PRODUCTION SERVERS ####
 [nonprod:children]
-ais_nonprod
-batch_nonprod
-rpe_nonprod
+ais_qa
+ais_test
+ais_batch_qa
+batch_qa
+batch_test
+rpe_qa
 infra_nonprod
-cm_nonprod
-cawa_nonprod
-power_nonprod
+cm_test
+cawa_test
+cawa_qa
+power_qa
+power_test
+
+[qa:children]
+ais_qa
+ais_batch_qa
+batch_qa
+rpe_qa
+cawa_qa
+power_qa
+
+[test:children]
+ais_test
+batch_test
+cawa_test
+power_test
 
 #### PRODUCTION SERVERS ####
 [prod:children]
@@ -75,13 +89,7 @@ power_prod
 
 #### NonProd System Logs ####
 [nonprodlogs:children]
-batch_nonprod
-rpe_nonprod
-infra_nonprod
-cm_nonprod
-ais_batch_nonprod
-cawa_nonprod
-power_nonprod
+nonprod
 
 
 ########################################
@@ -89,25 +97,28 @@ power_nonprod
 ########################################
 
 #### AIS ####
-[ais_nonprod]
-aisltest
-aislqa
-#aisfpetest
-aisfpeqa
-
 [ais_prod]
 aislprod
 aislprod2
 aisfpe
 aisfpe2
 
-[ais_batch_nonprod]
-aisbattest
-aisbatqa
+[ais_qa]
+aislqa
+aisfpeqa
+
+[ais_test]
+aisltest
+#aisfpetest
 
 [ais_batch_prod]
 aisbat
 
+[ais_batch_qa]
+aisbatqa
+
+[ais_batch_test]
+aisbattest
 ### Servers that needs mqm_files mounted ###
 [mqm_nfs]
 aislprod
@@ -119,26 +130,28 @@ batappqa
 batapptest
 
 #### BATCH ####
-[batch_nonprod]
-batapptest
-batappqa
-
 [batch_prod]
 batapp
 apparch
 aisbat
 
-#### RPE ####
-[rpe_nonprod]
-qarpeapp
-qarpedb
-#rtlapp
-#rtlappdb-new
+[batch_qa]
+batappqa
 
+[batch_test]
+batapptest
+
+#### RPE ####
 [rpe_prod]
 prpeapp
 prpedb
 oracon
+
+[rpe_qa]
+qarpeapp
+qarpedb
+#rtlapp
+#rtlappdb-new
 
 #### WAS ###
 [was_prod]
@@ -148,25 +161,29 @@ oracon
 #washttp02
 
 #### Content Mgr ###
-[cm_nonprod]
+[cm_test]
 dcmod
 
 #### CAWA ####
-[cawa_nonprod]
-dcawaws
-qcawaws
-dcawawc
-
 [cawa_prod]
 pcawaws
 
-#### DataPower ####
-[power_nonprod]
-dpowerapp
-qdpapp
+[cawa_qa]
+qcawaws
 
+[cawa_test]
+dcawaws
+dcawawc
+
+#### DataPower ####
 [power_prod]
 pdpapp
+
+[power_qa]
+qdpapp
+
+[power_test]
+dpowerapp
 
 #### INFRA ####
 [infra_nonprod]
@@ -180,4 +197,3 @@ satellite
 pmtls
 rhelhsm
 tsmlinux
-

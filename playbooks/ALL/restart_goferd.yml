@@ -1,5 +1,0 @@
----
-- hosts: all
-  tasks:
-  - name: restart goferd
-    service: name=goferd state=restarted
