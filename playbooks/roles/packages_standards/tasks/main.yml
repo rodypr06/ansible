@@ -16,7 +16,7 @@
     - tzdata
     - cifs-utils
     - katello-agent
-    - htop
+    #- htop
     - nmon
     - cockpit
 #    - nmap

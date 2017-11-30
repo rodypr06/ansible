@@ -1,9 +1,0 @@
----
-- name: InfluxDB play
-  hosts: test-kitchen
-
-  vars:
-    #influxdb_version: 1.0.0-1
-
-  roles:
-    - ansible-influxdb
