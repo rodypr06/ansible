@@ -1,5 +1,0 @@
----
-
-##Reloads SNMPD Configurations
-- name: restart_snmpd
-  service: name=snmpd state=restarted
