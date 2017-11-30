@@ -1,0 +1,4 @@
+- hosts: qa
+  tasks:
+    - name: upgrade all packages
+      shell: cat /etc/redhat-release
