@@ -1,0 +1,4 @@
+- hosts: rheltest
+  tasks:
+    - name: Refreshing Subscriptions #this is a comment
+      command: subscription-manager refresh
