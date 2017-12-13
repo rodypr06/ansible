@@ -1,48 +1,53 @@
+---
 ## Install Required packages
-- name: Install AD required packages
-  yum: state=present name={{ item }}
-  with_items:
-    - oddjob
-    - oddjob-mkhomedir
-    - adcli
-    - sssd
-    - realmd
+ - name: Install AD required packages
+   yum: state=present name={{ item }}
+   with_items:
+     - oddjob
+     - oddjob-mkhomedir
+     - adcli
+     - sssd
+     - realmd
 
   ## Create realmd file
-- name: Create Realmd Config file
-  blockinfile:
-    path: /etc/realmd.conf
-    block: |
-      [users]
-      default-home = /home/%d/%u
-    create: yes
+ - name: Create Realmd Config file
+   blockinfile:
+     path: /etc/realmd.conf
+     block: |
+       [users]
+       default-home = /home/%d/%u
+     create: yes
 
 ## Run script to join a server to Active Directory
 # - name: Join Server to AWG Domain
 #   script: /samnt/scripts/rhel_ad_config.sh start
-- name: Preset Computer Object
-  shell: echo -n '4rfvVFR$' |adcli preset-computer --stdin-password --domain=awg.local --domain-ou="ou=LINUX,ou=UNIX,ou=Internal Servers,dc=AWG,dc=Local" --login-user=Service_RHEL {{ ansible_hostname }}
-  pause: seconds=20
+#
+## Tasks to Join servers to AWG Domain
+ - name: Preset Computer Object
+   shell: echo -n '4rfvVFR$' |adcli preset-computer --stdin-password --domain=awg.local --domain-ou="ou=LINUX,ou=UNIX,ou=Internal Servers,dc=AWG,dc=Local" --login-user=Service_RHEL {{ ansible_hostname }}
+   pause: seconds=20
+   ignore_errors: true
 
-- name: Reset Computer Object
-  shell: echo -n '4rfvVFR$' |adcli reset-computer --stdin-password --domain=awg.local --login-user=Service_RHEL {{ ansible_hostname }}
-  pause: seconds=20
+ - name: Reset Computer Object
+   shell: echo -n '4rfvVFR$' |adcli reset-computer --stdin-password --domain=awg.local --login-user=Service_RHEL {{ ansible_hostname }}
+   pause: seconds=20
+   ignore_errors: true
 
-- name: Join the AWG Realm
-  shell: realm join awg.local --one-time-password={{ ansible_hostname}} --computer-ou="ou=LINUX,ou=UNIX,ou=Internal Servers,dc=AWG,dc=Local"
+ - name: Join the AWG Realm
+   shell: realm join awg.local --one-time-password={{ ansible_hostname}} --computer-ou="ou=LINUX,ou=UNIX,ou=Internal Servers,dc=AWG,dc=Local"
 
 ## Disable FQDN for User Authentication
-- name: Disable sssd need for FQDN
-  lineinfile:
-    path: /etc/sssd/sssd.conf
-    regexp: '^use_fully_qualified_names ='
-    line: 'use_fully_qualified_names = False'
+ - name: Disable sssd need for FQDN
+   lineinfile:
+     path: /etc/sssd/sssd.conf
+     regexp: '^use_fully_qualified_names ='
+     line: 'use_fully_qualified_names = False'
 
-- name: Sudoers file
-  template:
-      src: sudoers.j2
-      dest: /etc/Sudoers
-      validate: '/usr/sbin/visudo -cf %s'
+ - name: Sudoers file
+   template:
+       src: sudoers.j2
+       dest: /etc/Sudoers
+       validate: '/usr/sbin/visudo -cf %s'
 ## Add ssh access to allowed groups
 # - name: Add allowed ssh groups
 #   lineinfile:
@@ -52,15 +57,15 @@
 #   register: sshd
 
 ## Restart SSHD for changes to take effect
-- name: Restart sshd
-  service: name=sshd state=restarted enabled=yes
-  when: sshd|changed
+ - name: Restart sshd
+   service: name=sshd state=restarted enabled=yes
+   when: sshd|changed
 
 ## Add sudoers
-- name: Add sudoers
-  lineinfile:
-    path: /etc/sudoers
-    state: present
-    regexp: '^%rheladmin'
-    line: '%rheladmin	ALL=(ALL)	ALL'
-    validate: 'visudo -cf %s'
+ - name: Add sudoers
+   lineinfile:
+     path: /etc/sudoers
+     state: present
+     regexp: '^%rheladmin'
+     line: '%rheladmin	ALL=(ALL)	ALL'
+     validate: 'visudo -cf %s'
