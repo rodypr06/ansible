@@ -2,7 +2,7 @@
 #### Global System Configurations and Packages for all AWG Redhat Servers####
 - hosts: nonprod
   roles:
-   - satellite_subscription
+#   - satellite_subscription
    - resolv
    - nfs
    - packages_standards
@@ -13,4 +13,4 @@
    - rsyslog
    - monit
    - telegraf
-   - active_directory
+#   - active_directory
