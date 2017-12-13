@@ -1,6 +1,6 @@
 ---
 #### Global System Configurations and Packages for all AWG Redhat Servers####
-- hosts: test tsmlinux
+- hosts: nonprod
   roles:
    - satellite_subscription
    - resolv
@@ -11,3 +11,6 @@
    - ntp
    - snmpd
    - rsyslog
+   - monit
+   - telegraf
+   - active_directory

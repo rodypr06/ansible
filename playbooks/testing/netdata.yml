@@ -1,5 +1,0 @@
----
-####Install of Netdata for Performance Stats###
-- hosts: all
-  roles:
-    - netdata

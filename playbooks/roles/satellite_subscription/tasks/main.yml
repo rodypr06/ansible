@@ -17,6 +17,10 @@
     server_hostname: satellite.awg.local
     activationkey: AWG
     org_id: AWG
+  # register: subscribed
+  # retries: 2
+  # delay: 2
+  # until: subscribed.stdout.find("Status Subscribed") != -1
 
 ####Enable repositories####
 #- include: repositories.yml

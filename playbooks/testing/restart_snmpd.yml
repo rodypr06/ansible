@@ -1,5 +1,0 @@
----
-- hosts: all
-  tasks:
-  - name: restart snmpd
-    service: name=snmpd state=restarted

@@ -189,7 +189,6 @@ dpowerapp
 [infra_nonprod]
 graylogtest
 #tsmtest
-dawxapp
 rheltest
 
 [infra_prod]
@@ -198,3 +197,4 @@ satellite
 pmtls
 rhelhsm
 tsmlinux
+pawxapp

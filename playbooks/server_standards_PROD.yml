@@ -11,6 +11,5 @@
    - ntp
    - snmpd
    - rsyslog
-  # - monit
    - telegraf
-#   - active_directory
+   - active_directory

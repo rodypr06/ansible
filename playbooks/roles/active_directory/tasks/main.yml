@@ -1,9 +1,9 @@
 ---
 ## Verify if the server is already joined to AD
 - name: Verify if Server is joined to AWG Realm
-  shell: REALM=$(realm list | awk ' /'realm-name:'/ {print$2} '); if [ $REALM = AWG.LOCAL ]; then echo 'joined'; else echo 'not_joined'; fi
+  shell: REALM=$(realm list | awk ' /'realm-name:'/ {print$2} '); if [[ $REALM = AWG.LOCAL ]]; then echo 'joined'; else echo 'not_joined'; fi
   ignore_errors: true
   register: realm_status
 
 - include: join_realm.yml
-  when: realm_status.stdout.find("not_joined")
+  when: realm_status.stdout.find("not_joined") != -1
