@@ -6,8 +6,11 @@
   register: monit_conf
 
 ##Install monit if not present
-- include: install.yml
-  when: not monit_conf.stat.exists
+# - include: install.yml
+#   when: not monit_conf.stat.exists
+
+- name: Install monit
+  yum: name=monit state=latest
 
 - name: Monit Configuration file
   template:
