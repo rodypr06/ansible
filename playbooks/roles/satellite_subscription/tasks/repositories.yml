@@ -5,4 +5,5 @@
     repos:
       - rhel-7-server-satellite-tools-6.2-rpms
       - rhel-7-server-extras-rpms
+      - AWG_approved_epel_rpms_x86_64
     state: present
