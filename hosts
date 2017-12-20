@@ -190,6 +190,7 @@ dpowerapp
 graylogtest
 #tsmtest
 rheltest
+rstest
 
 [infra_prod]
 graylog

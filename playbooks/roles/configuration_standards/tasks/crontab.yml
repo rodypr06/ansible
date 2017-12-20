@@ -5,11 +5,11 @@
 ##
 #
 ##########Crontab Entries for root user##########
-# - name: Space Monitoring Script
-#   cron:
-#     name: "Space Monitoring runs every 15mins"
-#     minute: "*/15"
-#     job: "/samnt/scripts/space_monitor.sh > /dev/null 2>&1"
+- name: Space Monitoring Script
+  cron:
+    name: "Space Monitoring runs every 15mins"
+    minute: "*/15"
+    job: "/samnt/scripts/space_monitor.sh > /dev/null 2>&1"
 
 - name: System update count for MOTD
   cron:
