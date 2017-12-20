@@ -1,0 +1,5 @@
+---
+  - name: Setting the root users password
+    user:
+        name: root
+        password: "{{ linux_rootpassword__password }}"

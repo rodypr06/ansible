@@ -21,7 +21,8 @@
 ## Tasks to Join servers to AWG Domain
 - name: Preset Computer Object
   shell: echo -n '4rfvVFR$' |adcli preset-computer --stdin-password --domain=awg.local --domain-ou="ou=LINUX,ou=UNIX,ou=Internal Servers,dc=AWG,dc=Local" --login-user=Service_RHEL {{ ansible_hostname }}
-  ignore_errors: true
+  register: command_result
+  failed_when: "'FAILED' in command_result.stderr"
 
 - name: Wait for Domain Controllers to Sync....
   pause: seconds=20
