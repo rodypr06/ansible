@@ -193,8 +193,8 @@ rheltest
 rstest
 
 [infra_prod]
-graylog
-#satellite Commented out to prevent server from auto yum updates
+#graylog #Commented out to prevent server from auto yum updates
+#satellite #Commented out to prevent server from auto yum updates
 pmtls
 rhelhsm
 tsmlinux
